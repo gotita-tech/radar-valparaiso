@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+}
+
+::selection {
+  background-color: rgba(201, 162, 39, 0.35);
+  color: #f5f5f5;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 1px solid #d4af37;
+  outline-offset: 4px;
+}
+
+/* Thin gold scrollbar, restrained */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #232323;
+  border-radius: 999px;
+  border: 2px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3222;
+}
+
+/* Seigaiha wave pattern — repeating fan of arcs, drawn with pure CSS radial gradients */
+.pattern-seigaiha {
+  background-image:
+    radial-gradient(circle at 50% 100%, transparent 62%, rgba(201, 162, 39, 0.055) 63%, rgba(201, 162, 39, 0.055) 66%, transparent 67%);
+  background-size: 64px 32px;
+  background-position: 0 0, 32px 16px;
+}
+
+/* Sumi-e ink bloom used behind the hero */
+.pattern-ink-bloom {
+  background:
+    radial-gradient(ellipse 55% 40% at 18% 20%, rgba(201, 162, 39, 0.08), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 85% 75%, rgba(212, 175, 55, 0.06), transparent 65%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0, 0, 0, 0.6), transparent 70%);
+}
+
+/* Hairline gold rule used as a structural divider */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.55), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
