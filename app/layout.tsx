@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import GrandHallBackdrop from "@/components/GrandHallBackdrop";
+import CursorGlow from "@/components/CursorGlow";
+import { AUTHOR_NAME, AUTHOR_SHORT_NAME, EMAIL, SITE_URL } from "@/lib/site-config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,16 +24,15 @@ const notoSerifJP = Noto_Serif_JP({
   display: "swap",
 });
 
-const siteUrl = "https://tu-dominio.vercel.app";
-const siteName = "Vicente Tomás Jara Valdés — Consultor de IA & Desarrollo";
+const siteName = `${AUTHOR_SHORT_NAME} — Consultor de IA & Desarrollo`;
 const description =
   "Construyo páginas web y sistemas impulsados por Inteligencia Artificial que hacen crecer tu negocio: automatización, agentes de IA y desarrollo de software con estrategia detrás.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: siteName,
-    template: "%s · Tu Nombre",
+    template: `%s · ${AUTHOR_SHORT_NAME}`,
   },
   description,
   keywords: [
@@ -43,8 +44,11 @@ export const metadata: Metadata = {
     "agentes de IA",
     "transformación digital",
   ],
-  authors: [{ name: "Vicente Tomás Jara Valdés" }],
-  creator: "Vicente Tomás Jara Valdés",
+  authors: [{ name: AUTHOR_NAME }],
+  creator: AUTHOR_NAME,
+  alternates: {
+    canonical: SITE_URL,
+  },
   robots: {
     index: true,
     follow: true,
@@ -56,29 +60,44 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "es_ES",
-    url: siteUrl,
+    locale: "es_CL",
+    url: SITE_URL,
     siteName,
     title: siteName,
     description,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: siteName,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteName,
     description,
-    images: ["/og-image.png"],
   },
   icons: {
     icon: "/favicon.svg",
   },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteName,
+  url: SITE_URL,
+  image: `${SITE_URL}/opengraph-image`,
+  description,
+  email: EMAIL,
+  areaServed: "CL",
+  founder: {
+    "@type": "Person",
+    name: AUTHOR_NAME,
+    jobTitle: "Consultor de Inteligencia Artificial y Desarrollo de Software",
+    email: EMAIL,
+  },
+  knowsAbout: [
+    "Inteligencia Artificial",
+    "Automatización de procesos",
+    "Desarrollo de software",
+    "Consultoría tecnológica",
+    "Transformación digital",
+  ],
 };
 
 export default function RootLayout({
@@ -87,7 +106,13 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable} ${notoSerifJP.variable}`}>
       <body className="font-sans bg-ink-950 text-paper antialiased">
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <GrandHallBackdrop />
+        <CursorGlow />
         {children}
       </body>
     </html>

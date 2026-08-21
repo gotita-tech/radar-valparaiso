@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import HankoSeal from "./ui/HankoSeal";
 import LuxuryButton from "./ui/LuxuryButton";
+import { EMAIL, PHONE_DISPLAY, buildWhatsAppUrl } from "@/lib/site-config";
 
 export default function CTAFinal() {
+  const whatsappUrl = buildWhatsAppUrl();
+
   return (
     <section id="contacto" className="relative py-28 md:py-40 bg-ink-950 overflow-hidden">
       <div className="absolute inset-0 pattern-seigaiha opacity-25" aria-hidden="true" />
@@ -39,24 +42,31 @@ export default function CTAFinal() {
           transition={{ duration: 0.3, delay: 0.12 }}
           className="mt-10 flex flex-col items-center gap-6"
         >
-          <LuxuryButton href="mailto:vicentetomasjara@gmail.com" className="!px-10 !py-4">
-            Hablemos
+          <LuxuryButton
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="!px-10 !py-4"
+          >
+            Hablemos por WhatsApp
           </LuxuryButton>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-sm text-paper-dim">
             <a
-              href="mailto:vicentetomasjara@gmail.com"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-gold transition-colors duration-300"
+            >
+              <MessageCircle size={15} strokeWidth={1.5} />
+              {PHONE_DISPLAY}
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
               className="inline-flex items-center gap-2 hover:text-gold transition-colors duration-300"
             >
               <Mail size={15} strokeWidth={1.5} />
-              vicentetomasjara@gmail.com
-            </a>
-            <a
-              href="tel:+56965988361"
-              className="inline-flex items-center gap-2 hover:text-gold transition-colors duration-300"
-            >
-              <Phone size={15} strokeWidth={1.5} />
-              +56 9 6598 8361
+              {EMAIL}
             </a>
           </div>
         </motion.div>
