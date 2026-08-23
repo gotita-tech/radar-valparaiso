@@ -1,0 +1,332 @@
+{
+  "type": "FeatureCollection",
+  "name": "opportunity-radar-valparaiso",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3/CRS84"
+    }
+  },
+  "metadata": {
+    "source_document": "docs/Radar-de-Oportunidades-Valparaiso.docx",
+    "generated_from_document_at": "2025-02-22T14:30:00Z",
+    "feature_count": 15
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.6052,
+          -33.0441
+        ]
+      },
+      "properties": {
+        "business_id": "b001",
+        "business_name": "Bear Men Studio",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Av. Argentina 540",
+        "priority_score": 83,
+        "confidence_score": 88,
+        "priority_tier": "HIGH",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5512,
+          -33.0182
+        ]
+      },
+      "properties": {
+        "business_id": "b002",
+        "business_name": "María Clarita Taquería",
+        "niche": "restaurant",
+        "commune": "Viña del Mar",
+        "address": "Av. San Martín 410",
+        "priority_score": 61,
+        "confidence_score": 95,
+        "priority_tier": "GOOD",
+        "website_classification": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5432,
+          -32.9231
+        ]
+      },
+      "properties": {
+        "business_id": "b003",
+        "business_name": "Aquí Jaime",
+        "niche": "restaurant",
+        "commune": "Concón",
+        "address": "Av. Borgoño 21303",
+        "priority_score": 58,
+        "confidence_score": 92,
+        "priority_tier": "MEDIUM",
+        "website_classification": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5488,
+          -33.0152
+        ]
+      },
+      "properties": {
+        "business_id": "b004",
+        "business_name": "Macho's Barbershop",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "4 Norte 477",
+        "priority_score": 79,
+        "confidence_score": 82,
+        "priority_tier": "HIGH",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.6211,
+          -33.0478
+        ]
+      },
+      "properties": {
+        "business_id": "b005",
+        "business_name": "Barbería León Barber",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Condell 1329 local 16",
+        "priority_score": 78,
+        "confidence_score": 79,
+        "priority_tier": "HIGH",
+        "website_classification": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.552,
+          -33.021
+        ]
+      },
+      "properties": {
+        "business_id": "b006",
+        "business_name": "The Wolf Salon",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "Centro Viña",
+        "priority_score": 54,
+        "confidence_score": 90,
+        "priority_tier": "MEDIUM",
+        "website_classification": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5541,
+          -33.0235
+        ]
+      },
+      "properties": {
+        "business_id": "b007",
+        "business_name": "Humano Salon Barber",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "Viña del Mar",
+        "priority_score": 64,
+        "confidence_score": 86,
+        "priority_tier": "GOOD",
+        "website_classification": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5491,
+          -32.9712
+        ]
+      },
+      "properties": {
+        "business_id": "b008",
+        "business_name": "Bar La Virgen Reñaca",
+        "niche": "bar",
+        "commune": "Viña del Mar",
+        "address": "Sector Reñaca",
+        "priority_score": 61,
+        "confidence_score": 94,
+        "priority_tier": "GOOD",
+        "website_classification": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.5475,
+          -32.9511
+        ]
+      },
+      "properties": {
+        "business_id": "b009",
+        "business_name": "La Isla Cochoa",
+        "niche": "restaurant",
+        "commune": "Concón",
+        "address": "Av. Borgoño Cochoa",
+        "priority_score": 58,
+        "confidence_score": 91,
+        "priority_tier": "MEDIUM",
+        "website_classification": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.618,
+          -33.046
+        ]
+      },
+      "properties": {
+        "business_id": "b010",
+        "business_name": "Barbería Pinto",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Valparaíso Centro",
+        "priority_score": 75,
+        "confidence_score": 74,
+        "priority_tier": "HIGH",
+        "website_classification": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.6155,
+          -33.0432
+        ]
+      },
+      "properties": {
+        "business_id": "b011",
+        "business_name": "Peluquería Acuña",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Eloy Alfaro 14",
+        "priority_score": 76,
+        "confidence_score": 76,
+        "priority_tier": "HIGH",
+        "website_classification": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.3722,
+          -33.0421
+        ]
+      },
+      "properties": {
+        "business_id": "b012",
+        "business_name": "Tutti Foods",
+        "niche": "restaurant",
+        "commune": "Villa Alemana",
+        "address": "Carlos Saavedra 33",
+        "priority_score": 75,
+        "confidence_score": 80,
+        "priority_tier": "HIGH",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.543,
+          -33.111
+        ]
+      },
+      "properties": {
+        "business_id": "b013",
+        "business_name": "Barbería Urban Corte y Stylo",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "El Sauce 311, Placilla",
+        "priority_score": 73,
+        "confidence_score": 72,
+        "priority_tier": "GOOD",
+        "website_classification": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.546,
+          -32.962
+        ]
+      },
+      "properties": {
+        "business_id": "b014",
+        "business_name": "Restaurant San Marino's",
+        "niche": "restaurant",
+        "commune": "Viña del Mar",
+        "address": "Av. Borgoño 16805",
+        "priority_score": 66,
+        "confidence_score": 88,
+        "priority_tier": "GOOD",
+        "website_classification": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.551,
+          -33.0205
+        ]
+      },
+      "properties": {
+        "business_id": "b015",
+        "business_name": "Nicole Moreno By Luli",
+        "niche": "boutique",
+        "commune": "Viña del Mar",
+        "address": "Centro Viña",
+        "priority_score": 66,
+        "confidence_score": 70,
+        "priority_tier": "GOOD",
+        "website_classification": 3
+      }
+    }
+  ]
+}

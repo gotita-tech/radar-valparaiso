@@ -22,6 +22,7 @@ components/
   Services.tsx
   Methodology.tsx
   Projects.tsx
+  RadarShowcase.tsx       Sección de la landing que presenta el Opportunity Radar
   TechStack.tsx
   ValueProposition.tsx
   CTAFinal.tsx
@@ -31,10 +32,67 @@ components/
   ui/LuxuryButton.tsx     Botón con brillo al hover + sonido metálico
   three/GoldParticlesScene.tsx    Escena 3D (partículas + anillo doradas)
   three/GoldParticlesCanvas.tsx   Carga la escena solo en el navegador
+  radar/                  Aplicación Opportunity Radar (dashboard, mapa, filtros, ficha)
 hooks/
   useMetallicChime.ts     Sintetiza el sonido con Web Audio API (sin mp3)
+lib/
+  site-config.ts          Datos del sitio (URL, contacto, WhatsApp)
+  radar/                  Tipos, taxonomía, filtros, métricas y exportación
+data/
+  leads.json              Dataset canónico (fuente de verdad)
+  leads.geojson           FeatureCollection derivada
+  README.md               Procedencia y reglas de normalización de los datos
+docs/
+  Radar-de-Oportunidades-Valparaiso.docx   Documento canónico
+  deep-research-report.md                  Contexto comercial (no alimenta el dataset)
+scripts/
+  build-geojson.mjs       Deriva los .geojson desde leads.json
 public/
   favicon.svg
+  data/leads.geojson      Copia servible del GeoJSON
+```
+
+---
+
+## Opportunity Radar — Región de Valparaíso
+
+Ruta: `/radar`
+
+Dashboard de inteligencia comercial y geoespacial que detecta, califica y prioriza
+negocios con brecha digital en la Región de Valparaíso.
+
+### Qué incluye
+
+- **KPIs**: total de negocios, prospectos HIGH y VERY HIGH, negocios sin sitio web,
+  Priority Score promedio y Confidence Score promedio.
+- **Filtros** en panel lateral: comuna, nicho, umbral de Priority Score
+  (todos / ≥ 60 / ≥ 75 / ≥ 85), estado web y contactabilidad, más búsqueda por
+  nombre, dirección o comuna. Todos afectan a la vez a métricas, mapa, densidad,
+  ranking y listado.
+- **Mapa** Leaflet + OpenStreetMap **sin token ni variables de entorno**, con
+  clustering propio, capa de densidad ponderada por Priority Score, tooltips,
+  popup con acciones y dos bases cartográficas (oscura y OSM estándar).
+- **Ranking** *Top Opportunities* y **listado** con ordenamiento por columna
+  (tabla en desktop, cards en móvil).
+- **Ficha del prospecto**: Opportunity Score, Confidence, desglose de las cinco
+  dimensiones, evidencia trazable, diagnóstico digital, oportunidad comercial,
+  solución recomendada y enlaces reales a web, Instagram, WhatsApp, teléfono,
+  correo y fuentes.
+- **Exportación** a CSV y GeoJSON de la selección visible.
+
+### Arquitectura
+
+Sin backend, sin base de datos, sin autenticación y sin APIs privadas: la
+aplicación importa `data/leads.json` en tiempo de compilación y resuelve todo en
+el cliente sobre datos locales del repositorio.
+
+La procedencia de cada campo y las reglas de normalización están en
+[`data/README.md`](data/README.md).
+
+### Regenerar el GeoJSON tras editar el dataset
+
+```bash
+npm run data:build
 ```
 
 ---

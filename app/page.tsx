@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Methodology from "@/components/Methodology";
 import Projects from "@/components/Projects";
+import RadarShowcase from "@/components/RadarShowcase";
 import TechStack from "@/components/TechStack";
 import ValueProposition from "@/components/ValueProposition";
 import CTAFinal from "@/components/CTAFinal";
@@ -19,6 +20,7 @@ export default function Home() {
         <Services />
         <Methodology />
         <Projects />
+        <RadarShowcase />
         <TechStack />
         <ValueProposition />
         <CTAFinal />

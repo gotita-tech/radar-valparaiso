@@ -10,6 +10,7 @@ const links = [
   { href: "#servicios", label: "Servicios" },
   { href: "#metodologia", label: "Metodología" },
   { href: "#proyectos", label: "Proyectos" },
+  { href: "#radar", label: "Radar" },
   { href: "#contacto", label: "Contacto" },
 ];
 
