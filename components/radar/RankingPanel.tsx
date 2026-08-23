@@ -1,6 +1,9 @@
 "use client";
 
-import { AlertTriangle, ChevronRight, Globe, Instagram, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { AlertTriangle, ChevronRight, Crosshair, Globe, Instagram, MessageCircle } from "lucide-react";
+import { STAGE_META, usePipeline } from "@/lib/radar/pipeline";
+import { slugForLead } from "@/lib/radar/slug";
 import { DATA_FLAG, NICHE_LABEL, TIER, WEB_CLASS } from "@/lib/radar/taxonomy";
 import type { DataFlag, Lead } from "@/lib/radar/types";
 import { EmptyState, Meter } from "./ui";
@@ -20,6 +23,8 @@ export default function RankingPanel({
   onSelect: (id: string) => void;
   onOpenChannel: (lead: Lead, channel: "website" | "instagram" | "whatsapp") => void;
 }) {
+  const { entryOf, hydrated } = usePipeline();
+
   if (!leads.length) {
     return (
       <EmptyState
@@ -34,6 +39,8 @@ export default function RankingPanel({
       {leads.map((lead, index) => {
         const tier = TIER[lead.priority_tier];
         const isSelected = lead.business_id === selectedId;
+        const entry = entryOf(lead.business_id);
+        const stageMeta = STAGE_META[entry.stage];
 
         return (
           <li key={lead.business_id}>
@@ -93,7 +100,26 @@ export default function RankingPanel({
                 </div>
               </button>
 
-              <div className="mt-2 flex items-center gap-1 pl-8">
+              <div className="mt-2 flex flex-wrap items-center gap-1 pl-8">
+                <Link
+                  href={`/prospects/${slugForLead(lead)}`}
+                  title="Abrir el Prospect Studio"
+                  className="inline-flex h-6 items-center gap-1 rounded border border-gold/35 bg-gold/[0.08] px-2 text-[10px] text-gold transition-colors duration-200 hover:bg-gold/[0.16]"
+                >
+                  <Crosshair size={10} strokeWidth={1.9} />
+                  Analizar
+                </Link>
+
+                {hydrated && entry.stage !== "NEW" ? (
+                  <span
+                    title={stageMeta.description}
+                    className="inline-flex h-6 items-center gap-1 rounded px-1.5 text-[10px] uppercase tracking-widest"
+                    style={{ color: stageMeta.color, backgroundColor: stageMeta.soft }}
+                  >
+                    {stageMeta.short}
+                  </span>
+                ) : null}
+
                 {lead.website_url ? (
                   <QuickAction
                     label="Abrir sitio web"

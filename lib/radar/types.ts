@@ -78,6 +78,13 @@ export type Lead = {
   source_urls: string[];
   retrieved_at: string;
   evidence_notes: string | null;
+
+  /**
+   * URL de una demo real ya construida para este prospecto. Ausente mientras no
+   * exista: nunca se rellena con una URL inventada ni con la ruta de la demo
+   * conceptual autogenerada.
+   */
+  demo_url?: string | null;
 };
 
 export type LeadDataset = {

@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertTriangle,
+  ArrowRight,
+  Crosshair,
   ExternalLink,
   Globe,
   Instagram,
@@ -15,6 +18,7 @@ import {
   X,
 } from "lucide-react";
 import { needsHumanReview } from "@/lib/radar/data";
+import { slugForLead } from "@/lib/radar/slug";
 import { diagnosisFor, playbookFor } from "@/lib/radar/recommendations";
 import {
   DATA_FLAG,
@@ -173,6 +177,25 @@ export default function ProspectSheet({
                 <X size={18} strokeWidth={1.5} />
               </button>
             </header>
+
+            {/* Acción principal: continuar el análisis sin volver a introducir nada */}
+            <div className="border-b border-white/[0.07] px-5 py-3">
+              <Link
+                href={`/prospects/${slugForLead(lead)}`}
+                className="group flex w-full items-center justify-center gap-2 rounded-md bg-gold px-4 py-3 text-sm font-medium text-ink-950 transition-colors duration-300 hover:bg-gold-soft"
+              >
+                <Crosshair size={15} strokeWidth={1.8} />
+                Analizar oportunidad
+                <ArrowRight
+                  size={15}
+                  strokeWidth={1.8}
+                  className="transition-transform duration-300 group-hover:translate-x-0.5"
+                />
+              </Link>
+              <p className="mt-2 text-center text-[10px] text-paper-dim/35">
+                Abre el Prospect Studio: diagnóstico, solución, brief y prompt para Claude Code.
+              </p>
+            </div>
 
             <div className="flex-1 overflow-y-auto">
               {/* Opportunity Score */}

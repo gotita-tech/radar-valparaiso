@@ -1,7 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Download, LayoutList, Map as MapIcon, Search, SlidersHorizontal, X } from "lucide-react";
+import {
+  ArrowLeft,
+  Download,
+  KanbanSquare,
+  LayoutList,
+  Map as MapIcon,
+  Search,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
 import type { Lead } from "@/lib/radar/types";
 import { Segmented, ToolButton } from "./ui";
 
@@ -91,6 +100,15 @@ export default function RadarTopBar({
           />
         </div>
 
+        <Link
+          href="/pipeline"
+          title="Ver el pipeline comercial local"
+          className="hidden shrink-0 items-center gap-1.5 rounded-md border border-white/[0.07] bg-white/[0.02] px-2.5 py-1.5 text-xs text-paper-dim transition-colors duration-200 hover:border-gold/40 hover:text-gold md:inline-flex"
+        >
+          <KanbanSquare size={13} strokeWidth={1.6} />
+          <span className="hidden lg:inline">Pipeline</span>
+        </Link>
+
         <div className="hidden shrink-0 items-center gap-1.5 xl:flex">
           <ToolButton
             onClick={onExportCsv}
@@ -136,6 +154,13 @@ export default function RadarTopBar({
           ]}
         />
         <div className="ml-auto flex items-center gap-1.5">
+          <Link
+            href="/pipeline"
+            className="inline-flex items-center gap-1.5 rounded-md border border-white/[0.07] bg-white/[0.02] px-2.5 py-1.5 text-xs text-paper-dim transition-colors duration-200 hover:border-gold/40 hover:text-gold"
+          >
+            <KanbanSquare size={13} strokeWidth={1.6} />
+            Pipeline
+          </Link>
           <ToolButton
             onClick={onExportCsv}
             icon={<Download size={13} strokeWidth={1.6} />}

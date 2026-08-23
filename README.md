@@ -15,6 +15,10 @@ app/
   globals.css        Estilos base, patrones (seigaiha, tinta), accesibilidad
   sitemap.ts          Sitemap dinámico
   robots.ts           robots.txt dinámico
+  radar/page.tsx     Opportunity Radar
+  prospects/[slug]/  Prospect Studio por prospecto
+  demos/[slug]/      Concept demo por prospecto
+  pipeline/page.tsx  Embudo comercial local
 components/
   Navbar.tsx
   Hero.tsx
@@ -33,11 +37,15 @@ components/
   three/GoldParticlesScene.tsx    Escena 3D (partículas + anillo doradas)
   three/GoldParticlesCanvas.tsx   Carga la escena solo en el navegador
   radar/                  Aplicación Opportunity Radar (dashboard, mapa, filtros, ficha)
+  prospect/               Prospect Studio: score, señales, solución, entregables
+  demos/                  Plantilla de demo conceptual por nicho
+  pipeline/               Vista de embudo (columnas y tabla)
 hooks/
   useMetallicChime.ts     Sintetiza el sonido con Web Audio API (sin mp3)
 lib/
   site-config.ts          Datos del sitio (URL, contacto, WhatsApp)
-  radar/                  Tipos, taxonomía, filtros, métricas y exportación
+  radar/                  Tipos, taxonomía, filtros, métricas, exportación,
+                          diagnóstico, soluciones, brief, prompt y pipeline local
 data/
   leads.json              Dataset canónico (fuente de verdad)
   leads.geojson           FeatureCollection derivada
@@ -94,6 +102,55 @@ La procedencia de cada campo y las reglas de normalización están en
 ```bash
 npm run data:build
 ```
+
+---
+
+## Prospect Studio — del dato a la demo
+
+Ruta: `/prospects/[slug]` · una página por prospecto, generada estáticamente.
+
+El recorrido completo es: **Radar → Prospecto → Diagnóstico → Solución → Brief →
+Prompt → Demo**, sin volver a escribir ningún dato.
+
+### Motores deterministas
+
+Nada de esto llama a una API de IA. Son reglas fijas sobre el dataset: el mismo
+lead produce siempre el mismo resultado.
+
+| Módulo | Qué hace |
+| --- | --- |
+| `lib/radar/diagnosis.ts` | Señales detectadas, vacíos de información, problema digital y oportunidad comercial |
+| `lib/radar/solution.ts` | Blueprint de landing por nicho: módulos, prioridad y objetivo de conversión |
+| `lib/radar/brief.ts` | Prospect Brief en Markdown |
+| `lib/radar/prompt.ts` | Prompt listo para pegar en Claude Code |
+
+Cada afirmación se etiqueta como **hecho** (está en el dataset, con el campo
+citado), **inferencia** (lectura contra un umbral del modelo) o **recomendación**
+(propuesta comercial). Un campo `null` significa "no lo sabemos" y nunca produce
+una señal afirmativa: se declara como vacío y se arrastra al brief y al prompt
+como pendiente.
+
+### Demo conceptual
+
+Ruta: `/demos/[slug]`
+
+Vista previa marcada como **CONCEPT DEMO** que usa sólo datos del dataset y
+placeholders explícitos para todo lo demás. No es el sitio oficial de ningún
+establecimiento y no se indexa. Cuando exista una demo real, basta con añadir
+`demo_url` al lead en `data/leads.json` para que el botón "Ver demo" aparezca en
+el studio; mientras tanto muestra "Demo pendiente".
+
+### Pipeline comercial local
+
+Ruta: `/pipeline`
+
+Nueve estados (NEW → ANALYZED → BRIEF_READY → DEMO_READY → CONTACTED →
+RESPONDED → MEETING → WON, más LOST) y una nota privada por prospecto.
+
+Todo vive en `localStorage` bajo la clave
+`opportunity-radar:pipeline:v1`. **No hay backend ni sincronización**: si se
+limpia el navegador o se abre el proyecto en otro equipo, esa información no
+está. La interfaz lo advierte en cada punto donde se escribe.
 
 ---
 

@@ -1,6 +1,9 @@
 "use client";
 
-import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
+import Link from "next/link";
+import { ArrowDown, ArrowUp, ArrowUpDown, Crosshair } from "lucide-react";
+import { STAGE_META, usePipeline } from "@/lib/radar/pipeline";
+import { slugForLead } from "@/lib/radar/slug";
 import { NICHE_LABEL, TIER, WEB_CLASS } from "@/lib/radar/taxonomy";
 import type { Lead, SortKey } from "@/lib/radar/types";
 import { EmptyState, Meter, TierBadge } from "./ui";
@@ -14,6 +17,8 @@ const COLUMNS: { key: SortKey | null; label: string; align?: "right"; className?
   { key: "priority_score", label: "Priority", align: "right" },
   { key: "confidence_score", label: "Confidence", align: "right" },
   { key: null, label: "Tier" },
+  { key: null, label: "Estado" },
+  { key: null, label: "Acción" },
 ];
 
 export default function LeadTable({
@@ -31,6 +36,8 @@ export default function LeadTable({
   sortDirection: "asc" | "desc";
   onSort: (key: SortKey) => void;
 }) {
+  const { entryOf, hydrated } = usePipeline();
+
   if (!leads.length) {
     return (
       <EmptyState
@@ -44,7 +51,7 @@ export default function LeadTable({
     <>
       {/* Tabla densa — desktop y tablet */}
       <div className="hidden overflow-x-auto md:block">
-        <table className="w-full min-w-[860px] border-collapse text-sm">
+        <table className="w-full min-w-[1040px] border-collapse text-sm">
           <thead>
             <tr className="border-b border-white/[0.07]">
               {COLUMNS.map((column) => {
@@ -89,6 +96,7 @@ export default function LeadTable({
             {leads.map((lead) => {
               const tier = TIER[lead.priority_tier];
               const isSelected = lead.business_id === selectedId;
+              const stage = entryOf(lead.business_id).stage;
               return (
                 <tr
                   key={lead.business_id}
@@ -165,6 +173,33 @@ export default function LeadTable({
                   </td>
                   <td className="px-4 py-3">
                     <TierBadge tier={lead.priority_tier} />
+                  </td>
+                  <td className="px-4 py-3">
+                    {hydrated && stage !== "NEW" ? (
+                      <span
+                        title={STAGE_META[stage].description}
+                        className="inline-flex items-center rounded-sm px-1.5 py-0.5 text-[10px] uppercase tracking-widest"
+                        style={{
+                          color: STAGE_META[stage].color,
+                          backgroundColor: STAGE_META[stage].soft,
+                        }}
+                      >
+                        {STAGE_META[stage].short}
+                      </span>
+                    ) : (
+                      <span className="text-[11px] text-paper-dim/25">—</span>
+                    )}
+                  </td>
+                  <td className="px-4 py-3">
+                    <Link
+                      href={`/prospects/${slugForLead(lead)}`}
+                      onClick={(event) => event.stopPropagation()}
+                      title="Abrir el Prospect Studio"
+                      className="inline-flex items-center gap-1 rounded border border-gold/35 bg-gold/[0.08] px-2 py-1 text-[10px] text-gold transition-colors duration-200 hover:bg-gold/[0.16]"
+                    >
+                      <Crosshair size={10} strokeWidth={1.9} />
+                      Analizar
+                    </Link>
                   </td>
                 </tr>
               );
