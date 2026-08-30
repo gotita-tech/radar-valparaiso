@@ -50,7 +50,7 @@ Ambos son patrones documentados de Supabase y deberían funcionar con el rol
 | --- | --- | --- |
 | Qué es | Prospección comercial B2B | Radar ciudadano público |
 | Datos | `public.leads` (negocios con brecha digital) | `public.incidents` (reportes de vecinos) |
-| Estado | Funcionando, ampliado a 31 prospectos | Construido, esperando migraciones |
+| Estado | Funcionando, ampliado a 36 prospectos | Construido, esperando migraciones |
 
 El encargo original describía un esquema de incidentes ciudadanos, pero la
 aplicación existente era el radar comercial. Se construyó **lo nuevo al lado**,
@@ -87,7 +87,7 @@ sin tocar lo que ya funcionaba.
 20260830090600_create_incident_comments.sql     comentarios
 20260830090700_create_incident_media.sql        media + bucket privado
 20260830090800_create_leads.sql                 prospectos comerciales
-20260830090900_seed_leads.sql                   31 prospectos (GENERADO)
+20260830090900_seed_leads.sql                   36 prospectos (GENERADO)
 20260830091000_enable_incidents_realtime.sql    publicación realtime
 ```
 
@@ -160,13 +160,15 @@ npm run data:check
 ```
 
 Contrasta el motor contra los 15 del documento. Criterio: el motor debe quedar
-**por debajo**, nunca por encima. Estado actual: 0 registros por encima,
-desviación media 12,6 puntos, coincidencia del top 5 = 4/5. El script sale con
-código 1 si algún registro sobrepasa al documento.
+**por debajo**, nunca por encima. Estado actual: **0 registros por encima**,
+desviación media 11,1 puntos, coincidencia del top 5 = 3/5. El script sale con
+código 1 si algún registro sobrepasa al documento; el resto es informativo.
 
-(La desviación bajó de 26,3 a 12,6 al pasar de 15 a 31 registros: con más
+(La desviación bajó de 26,3 a 11,1 al pasar de 15 a 36 registros: con más
 vecinos, percentil y brecha competitiva tienen datos reales. El motor mejora
-solo conforme crece el dataset.)
+solo conforme crece el dataset. El top 5 oscila entre 3/5 y 4/5 por ese mismo
+motivo — al cambiar las cohortes cambia el orden dentro de los 15 — y no es
+señal de fallo mientras no haya registros por encima.)
 
 ### La ampliación
 
