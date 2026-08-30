@@ -1,235 +1,122 @@
-# Landing Page Personal — IA, Automatización & Desarrollo
+![radar-valparaiso](docs/assets/header.svg)
 
-Landing page premium de una sola página, construida para transmitir estrategia, dominio técnico y uso inteligente de la Inteligencia Artificial. Estética inspirada en el Japón clásico: lujo minimalista, negro profundo, acentos dorados, tipografía con carácter.
+## 01 — OVERVIEW
 
-**Stack:** Next.js 15 (App Router) · React · TypeScript · TailwindCSS · Framer Motion · Lucide Icons · Three.js / React Three Fiber
+Dashboard geoespacial que detecta, puntúa y ordena negocios con presencia digital débil en la Región de Valparaíso. 15 fichas verificadas a mano, 41 campos cada una, scoring de 5 dimensiones y evidencia enlazada a su fuente. Todo se resuelve en el navegador.
 
----
+`Next.js 15` `TypeScript` `Leaflet` `Three.js` `Tailwind`
 
-## Estructura
+**[Ver en vivo ↗](https://experimento-02.vercel.app)** · [el radar ↗](https://experimento-02.vercel.app/radar)
 
-```
-app/
-  layout.tsx        Metadata, SEO, Open Graph, Twitter Cards, fuentes
-  page.tsx           Ensambla todas las secciones
-  globals.css        Estilos base, patrones (seigaiha, tinta), accesibilidad
-  sitemap.ts          Sitemap dinámico
-  robots.ts           robots.txt dinámico
-  radar/page.tsx     Opportunity Radar
-  prospects/[slug]/  Prospect Studio por prospecto
-  demos/[slug]/      Concept demo por prospecto
-  pipeline/page.tsx  Embudo comercial local
-components/
-  Navbar.tsx
-  Hero.tsx
-  About.tsx
-  Services.tsx
-  Methodology.tsx
-  Projects.tsx
-  RadarShowcase.tsx       Sección de la landing que presenta el Opportunity Radar
-  TechStack.tsx
-  ValueProposition.tsx
-  CTAFinal.tsx
-  Footer.tsx
-  GrandHallBackdrop.tsx   Fondo ambiental de claroscuro, toda la página
-  ui/HankoSeal.tsx        Elemento de firma visual (sello / hanko)
-  ui/LuxuryButton.tsx     Botón con brillo al hover + sonido metálico
-  three/GoldParticlesScene.tsx    Escena 3D (partículas + anillo doradas)
-  three/GoldParticlesCanvas.tsx   Carga la escena solo en el navegador
-  radar/                  Aplicación Opportunity Radar (dashboard, mapa, filtros, ficha)
-  prospect/               Prospect Studio: score, señales, solución, entregables
-  demos/                  Plantilla de demo conceptual por nicho
-  pipeline/               Vista de embudo (columnas y tabla)
-hooks/
-  useMetallicChime.ts     Sintetiza el sonido con Web Audio API (sin mp3)
-lib/
-  site-config.ts          Datos del sitio (URL, contacto, WhatsApp)
-  radar/                  Tipos, taxonomía, filtros, métricas, exportación,
-                          diagnóstico, soluciones, brief, prompt y pipeline local
-data/
-  leads.json              Dataset canónico (fuente de verdad)
-  leads.geojson           FeatureCollection derivada
-  README.md               Procedencia y reglas de normalización de los datos
-docs/
-  Radar-de-Oportunidades-Valparaiso.docx   Documento canónico
-  deep-research-report.md                  Contexto comercial (no alimenta el dataset)
-scripts/
-  build-geojson.mjs       Deriva los .geojson desde leads.json
-public/
-  favicon.svg
-  data/leads.geojson      Copia servible del GeoJSON
-```
+## 02 — EL PROBLEMA
 
----
+Decidir a qué negocio ofrecer un servicio digital suele ser una lista de contactos y una corazonada: no hay forma de comparar dos prospectos ni de justificar por qué uno va antes que otro.
 
-## Opportunity Radar — Región de Valparaíso
+Y cuando existe un ranking, casi nunca se puede rastrear de dónde salió cada número.
 
-Ruta: `/radar`
+## 03 — LA SOLUCIÓN
 
-Dashboard de inteligencia comercial y geoespacial que detecta, califica y prioriza
-negocios con brecha digital en la Región de Valparaíso.
+Cada negocio se evalúa en cinco dimensiones independientes —necesidad digital, atractivo comercial, contactabilidad, encaje con una landing y oportunidad local— que se combinan en un **priority score** acompañado de un **confidence score** y un nivel (`priority_tier`).
 
-### Qué incluye
+La ficha de cada prospecto muestra el desglose completo, las notas de evidencia y los enlaces a las fuentes de las que salió cada dato. El ranking se puede discutir porque se puede auditar.
 
-- **KPIs**: total de negocios, prospectos HIGH y VERY HIGH, negocios sin sitio web,
-  Priority Score promedio y Confidence Score promedio.
-- **Filtros** en panel lateral: comuna, nicho, umbral de Priority Score
-  (todos / ≥ 60 / ≥ 75 / ≥ 85), estado web y contactabilidad, más búsqueda por
-  nombre, dirección o comuna. Todos afectan a la vez a métricas, mapa, densidad,
-  ranking y listado.
-- **Mapa** Leaflet + OpenStreetMap **sin token ni variables de entorno**, con
-  clustering propio, capa de densidad ponderada por Priority Score, tooltips,
-  popup con acciones y dos bases cartográficas (oscura y OSM estándar).
-- **Ranking** *Top Opportunities* y **listado** con ordenamiento por columna
-  (tabla en desktop, cards en móvil).
-- **Ficha del prospecto**: Opportunity Score, Confidence, desglose de las cinco
-  dimensiones, evidencia trazable, diagnóstico digital, oportunidad comercial,
-  solución recomendada y enlaces reales a web, Instagram, WhatsApp, teléfono,
-  correo y fuentes.
-- **Exportación** a CSV y GeoJSON de la selección visible.
-
-### Arquitectura
-
-Sin backend, sin base de datos, sin autenticación y sin APIs privadas: la
-aplicación importa `data/leads.json` en tiempo de compilación y resuelve todo en
-el cliente sobre datos locales del repositorio.
-
-La procedencia de cada campo y las reglas de normalización están en
-[`data/README.md`](data/README.md).
-
-### Regenerar el GeoJSON tras editar el dataset
-
-```bash
-npm run data:build
-```
-
----
-
-## Prospect Studio — del dato a la demo
-
-Ruta: `/prospects/[slug]` · una página por prospecto, generada estáticamente.
-
-El recorrido completo es: **Radar → Prospecto → Diagnóstico → Solución → Brief →
-Prompt → Demo**, sin volver a escribir ningún dato.
-
-### Motores deterministas
-
-Nada de esto llama a una API de IA. Son reglas fijas sobre el dataset: el mismo
-lead produce siempre el mismo resultado.
-
-| Módulo | Qué hace |
+| Qué | Detalle |
 | --- | --- |
-| `lib/radar/diagnosis.ts` | Señales detectadas, vacíos de información, problema digital y oportunidad comercial |
-| `lib/radar/solution.ts` | Blueprint de landing por nicho: módulos, prioridad y objetivo de conversión |
-| `lib/radar/brief.ts` | Prospect Brief en Markdown |
-| `lib/radar/prompt.ts` | Prompt listo para pegar en Claude Code |
+| **KPIs** | total de negocios, prospectos HIGH y VERY HIGH, negocios sin sitio web, priority y confidence medios |
+| **Mapa** | Leaflet + OpenStreetMap sin token ni variables de entorno, clustering propio, capa de densidad ponderada por priority score y dos bases cartográficas |
+| **Ranking y tabla** | Top Opportunities y listado con ordenación por columna — tabla en escritorio, tarjetas en móvil |
+| **Ficha de prospecto** | desglose de las cinco dimensiones, evidencia trazable, diagnóstico digital y enlaces reales a web, redes, teléfono y correo |
+| **Export** | CSV y GeoJSON de lo que está filtrado en pantalla |
 
-Cada afirmación se etiqueta como **hecho** (está en el dataset, con el campo
-citado), **inferencia** (lectura contra un umbral del modelo) o **recomendación**
-(propuesta comercial). Un campo `null` significa "no lo sabemos" y nunca produce
-una señal afirmativa: se declara como vacío y se arrastra al brief y al prompt
-como pendiente.
+**Cobertura actual del dataset**
 
-### Demo conceptual
+| Dato | Valor |
+| --- | --- |
+| Registros | 15 |
+| Campos por registro | 41 |
+| Comunas | Valparaíso · Viña del Mar · Concón · Villa Alemana |
+| Nichos | `barbershop` · `restaurant` · `bar` · `boutique` |
 
-Ruta: `/demos/[slug]`
+<sub>Es una muestra recogida y verificada a mano, no un censo. El número importa menos que el hecho de que cada registro se puede rastrear hasta su fuente.</sub>
 
-Vista previa marcada como **CONCEPT DEMO** que usa sólo datos del dataset y
-placeholders explícitos para todo lo demás. No es el sitio oficial de ningún
-establecimiento y no se indexa. Cuando exista una demo real, basta con añadir
-`demo_url` al lead en `data/leads.json` para que el botón "Ver demo" aparezca en
-el studio; mientras tanto muestra "Demo pendiente".
+### La landing que lo envuelve
 
-### Pipeline comercial local
+La ruta `/` es una landing de una sola página construida con la misma regla que el radar: nada se sirve como archivo si se puede generar. Los patrones de fondo son CSS, las partículas son Three.js / React Three Fiber cargado sólo en el navegador, y el sonido de los botones se sintetiza en tiempo real con la Web Audio API — no hay ningún `.mp3` en el repo.
 
-Ruta: `/pipeline`
+## 04 — DEMO
 
-Nueve estados (NEW → ANALYZED → BRIEF_READY → DEMO_READY → CONTACTED →
-RESPONDED → MEETING → WON, más LOST) y una nota privada por prospecto.
+| Entorno | URL |
+| --- | --- |
+| Producción | <https://experimento-02.vercel.app> |
+| El radar | <https://experimento-02.vercel.app/radar> |
 
-Todo vive en `localStorage` bajo la clave
-`opportunity-radar:pipeline:v1`. **No hay backend ni sincronización**: si se
-limpia el navegador o se abre el proyecto en otro equipo, esa información no
-está. La interfaz lo advierte en cada punto donde se escribe.
+**Rutas**
 
----
+| Ruta | Contenido |
+| --- | --- |
+| `/` | Landing de una página |
+| `/radar` | Opportunity Radar — el dashboard |
 
-## Antes de publicar: personaliza estos puntos
+## 05 — CÓMO FUNCIONA
 
-Tu nombre, correo y teléfono ya están cargados en el sitio (Navbar, Footer, CTA final y metadata). Lo que queda pendiente:
+- **Un dataset, versionado.** `data/leads.json` es la fuente de verdad: 15 negocios, 41 campos por registro, con `source_urls`, `evidence_notes` y `data_flags` en cada uno.
+- **Derivación reproducible.** `npm run data:build` ejecuta `scripts/build-geojson.mjs` y genera el `.geojson` a partir del JSON canónico. El GeoJSON nunca se edita a mano.
+- **Cálculo en el cliente.** El JSON se importa en tiempo de compilación; filtros, métricas y ordenación se resuelven en el navegador sobre datos locales.
+- **Un solo estado, cinco vistas.** Comuna, nicho, umbral de priority score, estado web, contactabilidad y búsqueda libre afectan a la vez a KPIs, mapa, capa de densidad, ranking y tabla.
+- **Salida abierta.** La selección visible se exporta a CSV o GeoJSON, así que el análisis puede continuar fuera de la aplicación.
 
-| Dónde | Qué cambiar |
-|---|---|
-| `app/layout.tsx` | `siteUrl` — el dominio final una vez despliegues en Vercel |
-| `components/Navbar.tsx`, `Footer.tsx` | Enlaces reales a LinkedIn / GitHub (ahora apuntan a marcadores de posición) |
-| `components/Hero.tsx`, `CTAFinal.tsx` | Si prefieres agendar reuniones por Calendly/Cal.com en vez de email, cambia el `href` del botón "Agendar reunión" |
-| `components/About.tsx` | Texto de "Sobre mí" — ajústalo a tu historia real si quieres afinarlo más |
-| `components/Projects.tsx` | Proyectos reales con resultados verificables |
-| `public/og-image.png` | Añade una imagen 1200×630 para redes sociales (referenciada en `layout.tsx`) |
+## 06 — STACK
 
----
-
-## Desarrollo local
+`Next.js 15` `TypeScript` `Leaflet` `Three.js` `Tailwind`
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm run lint` | ESLint |
+| `npm run data:build` | Regenera el GeoJSON desde data/leads.json |
+
+**Variables de entorno**
+
+| Variable | Necesaria | Para qué |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Opcional | Dominio propio para URL canónicas, sitemap y Open Graph. Sin ella se usa el dominio de Vercel |
+
+## 07 — ARQUITECTURA
+
+![Arquitectura](docs/assets/architecture.svg)
+
+Sin backend, sin base de datos, sin autenticación y sin APIs privadas: el despliegue se sirve como estático desde CDN.
+
+### Procedencia de los datos
+
+`data/leads.json` es la fuente de verdad y `data/leads.geojson` se deriva de él — nunca al revés. Cada registro lleva `source_urls`, `evidence_notes` y `data_flags`, de modo que cualquier puntuación se puede rastrear hasta el dato que la produjo.
+
+Las reglas completas de normalización están en [`data/README.md`](data/README.md).
+
+Tras editar el dataset:
 
 ```bash
-npm run build   # build de producción
-npm run lint    # comprobación de calidad de código
+npm run data:build
 ```
 
----
+## 08 — ESTADO ACTUAL
 
-## Publicar en GitHub
+- Desplegado y accesible. Las dos rutas (`/` y `/radar`) funcionan en producción.
+- El dataset son 15 negocios de 4 comunas y 4 nichos, recogidos y verificados a mano. Es una muestra de trabajo, no un censo regional.
+- La homepage del repositorio y los topics quedaron sin configurar hasta ahora.
 
-Este entorno de chat no tiene acceso a internet, así que estos comandos los ejecutas tú (2 minutos):
+## 09 — SIGUIENTE ITERACIÓN
 
-```bash
-cd personal-landing
-git init
-git add .
-git commit -m "Landing page inicial"
-git branch -M main
-git remote add origin https://github.com/TU-USUARIO/personal-landing.git
-git push -u origin main
-```
+- Ampliar la cobertura a más comunas y nichos manteniendo la regla de evidencia por registro.
+- Automatizar la recogida sin perder la trazabilidad: hoy cada `source_url` se comprueba a mano.
+- Separar la landing personal del radar si el dataset crece lo suficiente como para justificar su propio despliegue.
 
-Si no tienes el repositorio creado aún, créalo primero en [github.com/new](https://github.com/new) (sin README, sin .gitignore — ya están incluidos aquí).
+![](docs/assets/rule.svg)
 
----
-
-## Desplegar en Vercel
-
-**Opción A — Web (recomendada, sin comandos):**
-1. Entra a [vercel.com/new](https://vercel.com/new)
-2. Importa el repositorio de GitHub que acabas de crear
-3. Vercel detecta Next.js automáticamente — pulsa **Deploy**
-4. En 1–2 minutos tendrás tu URL: `tu-proyecto.vercel.app`
-
-**Opción B — CLI:**
-```bash
-npm install -g vercel
-vercel login
-vercel --prod
-```
-
-Después de desplegar, actualiza `siteUrl` en `app/layout.tsx`, `app/sitemap.ts` y `app/robots.ts` con tu dominio real de Vercel (o tu dominio propio) y vuelve a desplegar.
-
----
-
-## Notas de diseño
-
-- **Paleta:** negro profundo `#0A0A0A` / carbón `#121212`, acentos dorados `#C9A227` y `#D4AF37`, texto `#F5F5F5` / `#D9D9D9`.
-- **Tipografía:** Inter (UI/cuerpo), Playfair Display (titulares), Noto Serif JP (acentos/eyebrows).
-- **Elemento de firma:** un sello (*hanko*) dibujado en SVG, como los que un artesano estampa para autentificar su trabajo — aparece en el hero y en el CTA final.
-- **Patrones:** olas *seigaiha* y un fondo de tinta (*sumi-e*) generados con CSS puro, sin imágenes pesadas.
-- **Fondo ambiental:** `GrandHallBackdrop` recrea el claroscuro y la simetría de un gran salón renacentista —arcos en perspectiva, luz cálida central— sin reproducir ninguna obra ni figura reconocible.
-- **3D:** `GoldParticlesScene` (Three.js / React Three Fiber) dibuja polvo dorado flotante y un anillo fino detrás del titular del hero. Se carga solo en el navegador (`ssr: false`) porque WebGL no existe en el servidor.
-- **Sonido:** cada botón reproduce un tintineo metálico sintetizado en tiempo real con la Web Audio API (`hooks/useMetallicChime.ts`) — no hay ningún archivo `.mp3`, así que no pesa nada en la carga. Los navegadores requieren un gesto del usuario antes de reproducir audio; el primer hover lo activa automáticamente.
-- **Animaciones:** Framer Motion, entradas suaves ≤300ms, `prefers-reduced-motion` respetado.
-- **Accesibilidad:** foco de teclado visible en toda la interfaz, contraste AA sobre fondo oscuro.
+<sub>Parte de **[GOTITA//TECH](https://github.com/gotita-tech/gotita-tech)**. Este README se genera desde el manifiesto del perfil; para cambiarlo, edita `projects.json` allí y vuelve a ejecutar `kit/build.mjs`.</sub>

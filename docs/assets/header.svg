@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="176" viewBox="0 0 1000 176" role="img">
+<rect x="0.5" y="0.5" width="999" height="175" rx="10" fill="#0b0b0d" stroke="#23232b" stroke-width="1"/>
+<path d="M0.5 10.5a10 10 0 0 1 10-10h979a10 10 0 0 1 10 10v26H0.5Z" fill="#131317"/>
+<line x1="0.5" y1="36.5" x2="999.5" y2="36.5" stroke="#23232b" stroke-width="1" stroke-linecap="square"/>
+<rect x="20" y="14.5" width="7" height="7" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="34" y="14.5" width="7" height="7" rx="0" fill="#2f2f39" shape-rendering="crispEdges"/>
+<rect x="48" y="14.5" width="7" height="7" rx="0" fill="#2f2f39" shape-rendering="crispEdges"/>
+<text x="76" y="22.5" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="12" font-weight="400" fill="#5a5a66" text-anchor="start">~/gotita-tech/radar-valparaiso</text>
+<rect x="48" y="62" width="6" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="48" y="65" width="6" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="45" y="68" width="12" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="45" y="71" width="12" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="42" y="74" width="18" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="42" y="77" width="18" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="39" y="80" width="24" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="39" y="83" width="24" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="36" y="86" width="30" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="36" y="89" width="30" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="33" y="92" width="36" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="33" y="95" width="36" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="30" y="98" width="42" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="30" y="101" width="42" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="33" y="104" width="36" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="33" y="107" width="36" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="36" y="110" width="30" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<rect x="39" y="113" width="24" height="3" rx="0" fill="#d17ab6" shape-rendering="crispEdges"/>
+<text x="90" y="84" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="25" font-weight="700" fill="#e9e9ee" text-anchor="start" letter-spacing="0.5">radar-valparaiso</text>
+<rect x="352.5" y="68.5" width="67" height="21" rx="3" fill="#131317" stroke="#4ec9a5" stroke-width="1"/>
+<rect x="363" y="75" width="6" height="6" rx="0" fill="#4ec9a5" shape-rendering="crispEdges"/>
+<text x="376" y="83" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="700" fill="#4ec9a5" text-anchor="start" letter-spacing="0.8">LIVE</text>
+<text x="90" y="110" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="13.5" font-weight="400" fill="#8b8b97" text-anchor="start">Prioriza negocios con brecha digital sobre un mapa, sin backend</text>
+<rect x="90.5" y="128.5" width="86" height="22" rx="3" fill="#0f0f13" stroke="#23232b" stroke-width="1"/>
+<text x="100" y="143" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="400" fill="#8b8b97" text-anchor="start">Next.js 15</text>
+<rect x="184.5" y="128.5" width="86" height="22" rx="3" fill="#0f0f13" stroke="#23232b" stroke-width="1"/>
+<text x="194" y="143" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="400" fill="#8b8b97" text-anchor="start">TypeScript</text>
+<rect x="278.5" y="128.5" width="67" height="22" rx="3" fill="#0f0f13" stroke="#23232b" stroke-width="1"/>
+<text x="288" y="143" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="400" fill="#8b8b97" text-anchor="start">Leaflet</text>
+<rect x="353.5" y="128.5" width="73" height="22" rx="3" fill="#0f0f13" stroke="#23232b" stroke-width="1"/>
+<text x="363" y="143" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="400" fill="#8b8b97" text-anchor="start">Three.js</text>
+<rect x="434.5" y="128.5" width="73" height="22" rx="3" fill="#0f0f13" stroke="#23232b" stroke-width="1"/>
+<text x="444" y="143" font-family='ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="400" fill="#8b8b97" text-anchor="start">Tailwind</text>
+</svg>
