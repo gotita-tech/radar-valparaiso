@@ -10,7 +10,7 @@
   "metadata": {
     "source_document": "docs/Radar-de-Oportunidades-Valparaiso.docx",
     "generated_from_document_at": "2025-02-22T14:30:00Z",
-    "feature_count": 30
+    "feature_count": 35
   },
   "features": [
     {
@@ -360,14 +360,14 @@
       },
       "properties": {
         "business_id": "b017",
-        "business_name": "MAPU Barber Shop Spa",
+        "business_name": "Mapu Barber Shop",
         "niche": "barbershop",
         "commune": "Valparaíso",
-        "address": "Blanco 974, local 01",
-        "priority_score": 43,
-        "confidence_score": 47,
-        "priority_tier": "MEDIUM",
-        "website_classification": 3
+        "address": "Calle Blanco 974, Local 01",
+        "priority_score": 28,
+        "confidence_score": 86,
+        "priority_tier": "LOW",
+        "website_classification": 0
       }
     },
     {
@@ -385,7 +385,7 @@
         "niche": "barbershop",
         "commune": "Valparaíso",
         "address": "Condell 1190, Departamento 47",
-        "priority_score": 43,
+        "priority_score": 48,
         "confidence_score": 47,
         "priority_tier": "MEDIUM",
         "website_classification": 3
@@ -641,6 +641,111 @@
         "confidence_score": 55,
         "priority_tier": "LOW",
         "website_classification": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.55185,
+          -33.02232
+        ]
+      },
+      "properties": {
+        "business_id": "b032",
+        "business_name": "Life Barbería & Studio",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "1 Norte 681",
+        "priority_score": 61,
+        "confidence_score": 50,
+        "priority_tier": "GOOD",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.55976,
+          -33.02347
+        ]
+      },
+      "properties": {
+        "business_id": "b033",
+        "business_name": "Barbero Viña del Mar",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "Ecuador 215",
+        "priority_score": 45,
+        "confidence_score": 48,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.59291,
+          -32.83281
+        ]
+      },
+      "properties": {
+        "business_id": "b034",
+        "business_name": "Pansho Style Barbershop",
+        "niche": "barbershop",
+        "commune": "Los Andes",
+        "address": "Av. Independencia 312",
+        "priority_score": 43,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.59761,
+          -32.83388
+        ]
+      },
+      "properties": {
+        "business_id": "b035",
+        "business_name": "Barbería & Peluquería El Dominicano",
+        "niche": "barbershop",
+        "commune": "Los Andes",
+        "address": "Maipú 653",
+        "priority_score": 43,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.26447,
+          -32.89652
+        ]
+      },
+      "properties": {
+        "business_id": "b036",
+        "business_name": "Barbería Castellanos 23",
+        "niche": "barbershop",
+        "commune": "Quillota",
+        "address": "Valparaíso 1040",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
       }
     }
   ]

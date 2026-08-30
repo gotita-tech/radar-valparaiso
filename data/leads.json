@@ -10,7 +10,7 @@
     "Tabla I — top_prospects.csv",
     "Obras citadas"
   ],
-  "notes": "15 registros del documento canónico (scores sin recalcular) y 16 incorporados con el motor de scoring desde hechos observables. Los campos sin verificar quedan en null y bajan el Confidence Score.",
+  "notes": "31 registros del documento canónico (scores sin recalcular) y 21 incorporados con el motor de scoring desde hechos observables. Los campos sin verificar quedan en null y bajan el Confidence Score.",
   "generated_from_document_at": "2025-02-22T14:30:00Z",
   "leads": [
     {
@@ -992,68 +992,74 @@
     },
     {
       "business_id": "b017",
-      "business_name": "MAPU Barber Shop Spa",
+      "business_name": "Mapu Barber Shop",
       "niche": "barbershop",
       "subcategory": "Barbería",
       "commune": "Valparaíso",
-      "address": "Blanco 974, local 01",
+      "address": "Calle Blanco 974, Local 01",
       "latitude": -33.04088,
       "longitude": -71.62553,
-      "website_url": null,
-      "has_website": false,
-      "website_classification": 3,
-      "website_quality": null,
-      "instagram_url": null,
+      "website_url": "https://mapubarbershop.cl",
+      "has_website": true,
+      "website_classification": 0,
+      "website_quality": "Dominio propio con HTTPS, viewport responsive, catálogo de servicios con precios y reserva en línea.",
+      "instagram_url": "https://instagram.com/mapubarber",
       "facebook_url": null,
-      "social_only_presence": true,
-      "online_booking": false,
+      "social_only_presence": false,
+      "online_booking": true,
       "online_ordering": false,
       "online_menu": false,
       "online_catalog": true,
-      "whatsapp_business": null,
+      "whatsapp_business": "+56936717496",
       "public_business_email": null,
-      "public_business_phone": null,
+      "public_business_phone": "+56936717496",
       "rating": null,
       "review_count": null,
       "social_activity": null,
-      "multiple_locations": null,
-      "business_age_signal": null,
-      "source_primary": "agendapro",
+      "multiple_locations": true,
+      "business_age_signal": "Fundada en 2017 según su propio sitio; dos sucursales (Valparaíso y Viña del Mar).",
+      "source_primary": "direct",
       "source_urls": [
+        "https://mapubarbershop.cl/",
         "https://agendapro.com/mp/cl/pl/mapu-barber-shop-spa-valparaiso/40246",
         "https://nominatim.openstreetmap.org/"
       ],
       "retrieved_at": "2026-08-30T00:00:00Z",
-      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "evidence_notes": "Sitio propio verificado: precios publicados, reserva en línea, WhatsApp por sucursal e Instagram. Corrige la clasificación inicial, que se dedujo sólo de su ficha en AgendaPro y daba por inexistente una web que sí existe.",
       "demo_url": null,
-      "digital_need_score": 29,
-      "commercial_attractiveness_score": 2,
-      "contactability_score": 0,
+      "digital_need_score": 0,
+      "commercial_attractiveness_score": 7,
+      "contactability_score": 9,
       "landing_fit_score": 10,
       "local_opportunity_score": 2,
-      "priority_score": 43,
-      "confidence_score": 47,
-      "priority_tier": "MEDIUM",
+      "priority_score": 28,
+      "confidence_score": 86,
+      "priority_tier": "LOW",
       "score_explanations": [
-        {
-          "dimension": "digital_need",
-          "points": 22,
-          "label": "Opera sólo en redes sociales o agregadores"
-        },
-        {
-          "dimension": "digital_need",
-          "points": 4,
-          "label": "Sin sistema de reservas propio"
-        },
-        {
-          "dimension": "digital_need",
-          "points": 3,
-          "label": "Sin canal visible de WhatsApp Business"
-        },
         {
           "dimension": "commercial_attractiveness",
           "points": 2,
           "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 3,
+          "label": "Local físico verificado en zona comercial"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Múltiples sucursales"
+        },
+        {
+          "dimension": "contactability",
+          "points": 5,
+          "label": "WhatsApp Business o móvil corporativo"
+        },
+        {
+          "dimension": "contactability",
+          "points": 4,
+          "label": "Perfil de Instagram como canal activo"
         },
         {
           "dimension": "landing_fit",
@@ -1113,8 +1119,8 @@
       "commercial_attractiveness_score": 2,
       "contactability_score": 0,
       "landing_fit_score": 10,
-      "local_opportunity_score": 2,
-      "priority_score": 43,
+      "local_opportunity_score": 7,
+      "priority_score": 48,
       "confidence_score": 47,
       "priority_tier": "MEDIUM",
       "score_explanations": [
@@ -1150,8 +1156,8 @@
         },
         {
           "dimension": "local_opportunity",
-          "points": 0,
-          "label": "0 de 1 competidores a 500 m ya tienen web"
+          "points": 5,
+          "label": "1 de 1 competidores a 500 m ya tienen web"
         }
       ],
       "scoring_source": "engine"
@@ -2225,6 +2231,426 @@
           "dimension": "local_opportunity",
           "points": 0,
           "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b032",
+      "business_name": "Life Barbería & Studio",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Viña del Mar",
+      "address": "1 Norte 681",
+      "latitude": -33.02232,
+      "longitude": -71.55185,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": 5,
+      "review_count": 135,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "fresha",
+      "source_urls": [
+        "https://www.fresha.com/a/life-barberia-studio-vina-del-mar-vina-del-mar-1-norte-681-rnes29ng",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha en Fresha con rating y volumen de reseñas publicados. Sin sitio web propio detectado.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 15,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 7,
+      "priority_score": 61,
+      "confidence_score": 50,
+      "priority_tier": "GOOD",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 10,
+          "label": "Volumen de reseñas en el percentil 100 de su nicho y comuna"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Rating 5.0"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 5,
+          "label": "2 de 2 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b033",
+      "business_name": "Barbero Viña del Mar",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Viña del Mar",
+      "address": "Ecuador 215",
+      "latitude": -33.02347,
+      "longitude": -71.55976,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": 0,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "fresha",
+      "source_urls": [
+        "https://www.fresha.com/es/a/barbero-vina-del-mar-vina-del-mar-ecuador-215-ixpvmuz9",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha en Fresha sin reseñas todavía (0). Sin sitio web propio detectado.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 48,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b034",
+      "business_name": "Pansho Style Barbershop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Los Andes",
+      "address": "Av. Independencia 312",
+      "latitude": -32.83281,
+      "longitude": -70.59291,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-los-andes",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada. Sin sitio web propio detectado.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 43,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "0 reseñas (umbral absoluto: cohorte insuficiente para percentil)"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b035",
+      "business_name": "Barbería & Peluquería El Dominicano",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Los Andes",
+      "address": "Maipú 653",
+      "latitude": -32.83388,
+      "longitude": -70.59761,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-los-andes",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada. Sin sitio web propio detectado.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 43,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "0 reseñas (umbral absoluto: cohorte insuficiente para percentil)"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b036",
+      "business_name": "Barbería Castellanos 23",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Quillota",
+      "address": "Valparaíso 1040",
+      "latitude": -32.89652,
+      "longitude": -71.26447,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-quillota",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada. Sin sitio web propio detectado.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "0 reseñas (umbral absoluto: cohorte insuficiente para percentil)"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
         }
       ],
       "scoring_source": "engine"

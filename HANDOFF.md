@@ -170,21 +170,37 @@ solo conforme crece el dataset.)
 
 ### La ampliación
 
-Dataset: **15 → 31 prospectos**. Barberías: **8 → 24**. Comunas: **4 → 6**
-(nuevas: Quilpué y La Calera).
+Dataset: **15 → 36 prospectos**. Barberías: **8 → 29**. Comunas: **4 → 8**
+(nuevas: Quilpué, La Calera, Los Andes, Quillota).
 
-16 barberías reales, verificadas en fichas públicas de AgendaPro y en el sitio
-propio del negocio. 15 con coordenadas resueltas contra OpenStreetMap
+21 barberías reales, verificadas en fichas públicas de AgendaPro y Fresha y en
+el sitio propio del negocio. 20 con coordenadas resueltas contra OpenStreetMap
 (Nominatim, sin clave). Muski Barber Shop se queda sin coordenadas porque
 Nominatim no resuelve su dirección — **no se inventa**.
 
-Quince operan sin web propia (clase 3). La excepción, Cambia tu Look, tiene web
-con reservas y precios y por eso puntúa LOW 29: no necesita lo que se vende.
-Sirve de contraste y alimenta la brecha competitiva de sus vecinos.
+Dos ya tienen buena web y por eso puntúan LOW: Mapu Barber Shop (28) y Cambia
+tu Look (29). No necesitan lo que se vende, pero alimentan la brecha competitiva
+de sus vecinos, así que entran igual.
 
-Lo que **no** se pudo verificar y queda en `null`: rating, número de reseñas,
-actividad social, teléfonos y correos de la mayoría. AgendaPro no los expone.
-El Confidence Score lo refleja (≈47 sobre 100).
+**Fresha sí publica rating y reseñas; AgendaPro no.** Por eso Life Barbería &
+Studio (5,0 con 135 reseñas verificadas) alcanza GOOD 61, el mejor del lote,
+mientras los de AgendaPro se quedan en ~45 con el rating en `null`. No es que
+sean peores negocios: es que su reputación no está verificada.
+
+### Lección: el caso Mapu
+
+`b017` se clasificó primero como "sólo agregador, sin web" a partir de su ficha
+de AgendaPro. **Era falso**: tiene sitio propio con precios, reservas, HTTPS,
+viewport responsive y dos sucursales desde 2017. Al corregirlo pasó de
+MEDIUM 43 / confianza 47 a **LOW 28 / confianza 86**.
+
+Dos conclusiones que conviene no olvidar al ampliar:
+
+1. **Una ficha de agregador no prueba ausencia de web.** Hay que buscar el
+   dominio del negocio antes de asignar clase 3 o 4.
+2. El Confidence Score bajo estaba haciendo su trabajo: avisaba de que ese
+   registro se apoyaba en una sola fuente. Cuando la confianza es ~47, el dato
+   es una hipótesis, no un hecho.
 
 ### Pipeline de ampliación
 
@@ -208,12 +224,17 @@ duplicado, intento de repuntuar uno de los 15) y no escribe nada.
 | --- | --- |
 | `npx tsc --noEmit` | limpio |
 | `npm run lint` | limpio, sin warnings |
-| `npm run build` | pasa · 31 rutas en `/prospects` y `/demos` |
+| `npm run build` | pasa · 36 rutas en `/prospects` y `/demos` |
 | `npm run data:check` | pasa (0 registros por encima del documento) |
 | Producción | verificada en `3c8ed43`; el commit de scoring despliega solo al hacer push |
 
-Las 16 barberías nuevas obtuvieron su Prospect Studio y su demo conceptual sin
+Las 21 barberías nuevas obtuvieron su Prospect Studio y su demo conceptual sin
 tocar código: `generateStaticParams` las recoge del dataset.
+
+**Aviso de SWC en Windows:** el build puede mostrar "Attempted to load
+@next/swc-win32-x64-msvc … Una directiva de Control de aplicaciones bloqueó este
+archivo". Next cae a WASM y compila igual. Es política del equipo, no un error
+del proyecto.
 
 **Nota sobre Windows/OneDrive:** si `npm run build` falla con
 `EINVAL: readlink ... server-reference-manifest.js`, es un artefacto viciado en
@@ -240,9 +261,13 @@ tocar código: `generateStaticParams` las recoge del dataset.
    tener cuenta.
 8. **`/pipeline` sigue en `localStorage`.** Migrarlo exigiría login obligatorio
    para uso interno; se dejó como estaba.
-9. **Enriquecer los 16 nuevos**: rating, reseñas, teléfonos y actividad social
-   siguen en `null`. Con esos datos el Confidence Score sube de ~47 y los
-   Priority Score se acercan a los del documento.
+9. **Enriquecer los que vienen de AgendaPro**: rating, reseñas, teléfonos y
+   actividad social siguen en `null` (confianza ~47). Dos vías comprobadas:
+   buscar la ficha del negocio en **Fresha**, que sí publica reputación, y
+   buscar su dominio propio, que suele traer teléfono, precios y horarios.
+10. **Revisar las clases 3 y 4 ya cargadas.** Tras el caso Mapu, conviene
+    comprobar si alguno de los demás "sin web" tiene en realidad dominio
+    propio. Candidatos por volumen: los ocho de AgendaPro cargados el 30/08.
 
 ---
 

@@ -193,11 +193,16 @@ function asContext(lead: Lead): LeadObservation {
   return { ...facts, audit: NEUTRAL_AUDIT };
 }
 
-const context = dataset.leads.map(asContext);
+const incomingIds = new Set(incoming.map((lead) => lead.business_id));
+
+// Un id reenviado entra una sola vez, con los datos nuevos: contarlo dos veces
+// falsearía su propia cohorte y su vecindad.
+const context = dataset.leads
+  .filter((lead) => !incomingIds.has(lead.business_id))
+  .map(asContext);
+
 const scored = scoreDataset([...context, ...incoming]);
 const scoredById = new Map(scored.map((lead) => [lead.business_id, lead]));
-
-const incomingIds = new Set(incoming.map((lead) => lead.business_id));
 
 const added: Lead[] = [];
 for (const id of incomingIds) {
@@ -208,14 +213,24 @@ for (const id of incomingIds) {
 
 added.sort((a, b) => a.business_id.localeCompare(b.business_id));
 
-// Los existentes conservan intactos sus valores del documento.
+/*
+ * Los existentes conservan intactos sus valores; los del documento porque la
+ * validación ya impidió reenviarlos, y el resto porque nadie los ha reenviado.
+ *
+ * Un id que sí viene en el intake se reemplaza, no se añade: reingerir un
+ * registro es corregirlo. Sin este filtro, corregir un dato lo duplicaría.
+ */
 const merged: Lead[] = [
-  ...dataset.leads.map((lead) => ({
-    ...lead,
-    scoring_source: lead.scoring_source ?? ("document" as const),
-  })),
+  ...dataset.leads
+    .filter((lead) => !incomingIds.has(lead.business_id))
+    .map((lead) => ({
+      ...lead,
+      scoring_source: lead.scoring_source ?? ("document" as const),
+    })),
   ...added,
 ];
+
+merged.sort((a, b) => a.business_id.localeCompare(b.business_id));
 
 const output: LeadDataset = {
   ...dataset,
