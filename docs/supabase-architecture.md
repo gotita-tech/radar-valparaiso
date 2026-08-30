@@ -164,10 +164,18 @@ lo cierra en el cleanup y, si la suscripción falla, **se degrada a refetch cada
 
 Bucket `incident-media`, **privado**, 10 MB por archivo, sólo imágenes.
 
-Privado a propósito: las fotos de un incidente son contenido público, pero un
-bucket público deja cualquier objeto accesible por URL para siempre — también
-las de un incidente que la moderación acabe rechazando. Con el bucket cerrado,
-`lib/data/media.ts` firma URLs de 10 minutos y retirar contenido surte efecto.
+Privado a propósito: un bucket público deja cualquier objeto accesible por una
+URL permanente y adivinable desde el nombre. Con el bucket cerrado,
+`lib/data/media.ts` firma URLs de 10 minutos.
+
+Con precisión sobre qué protege esto y qué no: `anon` conserva `select` sobre
+el bucket, porque firmar una URL exige ese permiso. Lo que impide llegar a la
+foto de un incidente rechazado no es el permiso de Storage, sino que su ruta
+deja de ser descubrible — la política de `incident_media` sólo revela filas de
+incidentes visibles, y las rutas son UUID. Quien ya hubiera anotado una ruta
+concreta podría volver a firmarla. Cerrar esa puerta del todo exige mover la
+firma a una Route Handler con `service_role`, y eso queda para cuando exista
+el panel de moderación.
 
 Rutas: `<user-id>/<incident-id>/<uuid>.<ext>`. La convención se impone dos
 veces: en las políticas de `storage.objects` (`foldername(name)[1] = auth.uid()`)

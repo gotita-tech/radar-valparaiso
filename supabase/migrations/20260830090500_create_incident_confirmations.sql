@@ -45,10 +45,19 @@ security definer
 set search_path = ''
 as $$
 declare
-  target_id uuid := coalesce(new.incident_id, old.incident_id);
+  target_id uuid;
   confirmations integer;
   verification_threshold constant integer := 3;
 begin
+  -- En un trigger de DELETE, NEW no está asignado: leer NEW.incident_id ahí es
+  -- un error en tiempo de ejecución. Se ramifica por TG_OP en lugar de confiar
+  -- en que un coalesce lo resuelva.
+  if tg_op = 'DELETE' then
+    target_id := old.incident_id;
+  else
+    target_id := new.incident_id;
+  end if;
+
   select count(*)
     into confirmations
     from public.incident_confirmations c
