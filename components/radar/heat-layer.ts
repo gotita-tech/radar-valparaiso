@@ -103,6 +103,19 @@ export function createHeatLayer(L: Leaflet, initialPoints: HeatPoint[]): HeatLay
       if (!map || !canvas) return;
 
       const size = map.getSize();
+
+      /*
+       * El contenedor puede medir 0 cuando todavía no se ha maquetado, cuando
+       * está oculto (`display:none`) o durante una transición. Dimensionar el
+       * lienzo a 0 hace que `getImageData` lance IndexSizeError, y como esto
+       * corre dentro de un manejador de eventos de Leaflet, la excepción sube
+       * hasta React y tumba la página entera con "Application error".
+       *
+       * Se sale sin dibujar: Leaflet vuelve a emitir `resize` en cuanto el
+       * contenedor tiene tamaño, y entonces se pinta.
+       */
+      if (size.x <= 0 || size.y <= 0) return;
+
       const topLeft = map.containerPointToLayerPoint([0, 0]);
       L.DomUtil.setPosition(canvas, topLeft);
       canvas.width = size.x;
@@ -120,6 +133,9 @@ export function createHeatLayer(L: Leaflet, initialPoints: HeatPoint[]): HeatLay
 
       const ctx = canvas.getContext("2d", { willReadFrequently: true });
       if (!ctx) return;
+
+      // Segunda red, por si se llega aquí sin pasar por `_reset`.
+      if (canvas.width <= 0 || canvas.height <= 0) return;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       if (!points.length) return;
