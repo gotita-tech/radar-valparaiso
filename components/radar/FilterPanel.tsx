@@ -1,7 +1,8 @@
 "use client";
 
+import { useMemo } from "react";
 import { RotateCcw, ShieldCheck } from "lucide-react";
-import { FACETS } from "@/lib/radar/data";
+import { computeFacets } from "@/lib/radar/data";
 import { NICHE_LABEL, TIER, WEB_CLASS } from "@/lib/radar/taxonomy";
 import type { Filters, Lead, Niche, ScoreThreshold, WebsiteClassification } from "@/lib/radar/types";
 import { Chip, SectionLabel } from "./ui";
@@ -26,6 +27,10 @@ export default function FilterPanel({
   leads: Lead[];
   activeCount: number;
 }) {
+  // Las facetas salen del conjunto recibido, que desde la migración a Supabase
+  // ya no es necesariamente el dataset local.
+  const FACETS = useMemo(() => computeFacets(leads), [leads]);
+
   const countBy = <T,>(predicate: (lead: Lead) => T, value: T) =>
     leads.filter((lead) => predicate(lead) === value).length;
 

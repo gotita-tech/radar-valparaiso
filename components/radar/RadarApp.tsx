@@ -9,9 +9,9 @@ import {
   LEADS,
   applyFilters,
   computeMetrics,
-  findLead,
   sortLeads,
 } from "@/lib/radar/data";
+import type { LeadsSource } from "@/lib/data/leads";
 import { downloadText, leadsToCsv, leadsToGeoJson } from "@/lib/radar/export";
 import { EMPTY_FILTERS, type Filters, type Lead, type SortKey } from "@/lib/radar/types";
 import DistributionPanel from "./DistributionPanel";
@@ -34,7 +34,19 @@ const RadarMap = dynamic(() => import("./RadarMap"), {
 
 type Shortcut = "very_high" | "high" | "no_website" | null;
 
-export default function RadarApp() {
+/**
+ * El dashboard recibe los prospectos ya resueltos desde el servidor
+ * (`app/radar/page.tsx`), que los pide a Supabase. Los valores por defecto
+ * mantienen funcionando cualquier uso del componente sin props y sirven de red
+ * si la consulta falla.
+ */
+export default function RadarApp({
+  leads = LEADS,
+  source = "local",
+}: {
+  leads?: Lead[];
+  source?: LeadsSource;
+} = {}) {
   const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
   const [view, setView] = useState<RadarView>("map");
   const [sortKey, setSortKey] = useState<SortKey>("priority_score");
@@ -48,14 +60,17 @@ export default function RadarApp() {
 
   const mapSectionRef = useRef<HTMLDivElement | null>(null);
 
-  const filtered = useMemo(() => applyFilters(LEADS, filters), [filters]);
+  const filtered = useMemo(() => applyFilters(leads, filters), [leads, filters]);
   const sorted = useMemo(
     () => sortLeads(filtered, sortKey, sortDirection),
     [filtered, sortKey, sortDirection],
   );
   const ranking = useMemo(() => sortLeads(filtered, "priority_score", "desc"), [filtered]);
   const metrics = useMemo(() => computeMetrics(filtered), [filtered]);
-  const selectedLead = useMemo(() => findLead(selectedId), [selectedId]);
+  const selectedLead = useMemo(
+    () => leads.find((lead) => lead.business_id === selectedId) ?? null,
+    [leads, selectedId],
+  );
 
   const activeFilterCount =
     filters.communes.length +
@@ -179,7 +194,7 @@ export default function RadarApp() {
             filters={filters}
             onChange={setFilters}
             onReset={resetFilters}
-            leads={LEADS}
+            leads={leads}
             activeCount={activeFilterCount}
           />
         </aside>
@@ -202,7 +217,7 @@ export default function RadarApp() {
 
             <KpiStrip
               metrics={metrics}
-              totalUnfiltered={LEADS.length}
+              totalUnfiltered={leads.length}
               onFocusVeryHigh={focusVeryHigh}
               onFocusHigh={focusHigh}
               onFocusNoWebsite={focusNoWebsite}
@@ -350,6 +365,22 @@ export default function RadarApp() {
 
           <footer className="rounded-lg border border-white/[0.07] bg-ink-900/20 px-4 py-4">
             <SectionLabel>Procedencia de los datos</SectionLabel>
+            <p className="mb-2 text-[11px] leading-relaxed text-paper-dim/55">
+              {source === "supabase" ? (
+                <>
+                  <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#5FA463] align-middle" />
+                  Los {leads.length} prospectos se están leyendo desde{" "}
+                  <span className="text-paper-dim">Supabase</span> (tabla{" "}
+                  <code className="font-mono text-[10px]">public.leads</code>).
+                </>
+              ) : (
+                <>
+                  <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#C9A227] align-middle" />
+                  Mostrando la <span className="text-paper-dim">copia local versionada</span> del
+                  dataset: la base de datos no respondió o todavía no tiene la semilla aplicada.
+                </>
+              )}
+            </p>
             <p className="text-[11px] leading-relaxed text-paper-dim/55">
               {DATASET_META.notes} Fuente canónica:{" "}
               <span className="text-paper-dim">{DATASET_META.sourceDocument}</span> (
@@ -404,7 +435,7 @@ export default function RadarApp() {
                 filters={filters}
                 onChange={setFilters}
                 onReset={resetFilters}
-                leads={LEADS}
+                leads={leads}
                 activeCount={activeFilterCount}
               />
             </motion.aside>

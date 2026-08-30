@@ -55,13 +55,19 @@ La ruta `/` es una landing de una sola página construida con la misma regla que
 | Ruta | Contenido |
 | --- | --- |
 | `/` | Landing de una página |
-| `/radar` | Opportunity Radar — el dashboard |
+| `/radar` | Opportunity Radar — prospección comercial |
+| `/incidentes` | Radar ciudadano — incidentes en tiempo real |
+| `/prospects/[slug]` | Prospect Studio: diagnóstico, solución, brief y prompt |
+| `/demos/[slug]` | Demo conceptual por prospecto |
+| `/pipeline` | Embudo comercial (local, `localStorage`) |
+| `/acceso` | Entrar o crear cuenta |
 
 ## 05 — CÓMO FUNCIONA
 
 - **Un dataset, versionado.** `data/leads.json` es la fuente de verdad: 15 negocios, 41 campos por registro, con `source_urls`, `evidence_notes` y `data_flags` en cada uno.
 - **Derivación reproducible.** `npm run data:build` ejecuta `scripts/build-geojson.mjs` y genera el `.geojson` a partir del JSON canónico. El GeoJSON nunca se edita a mano.
-- **Cálculo en el cliente.** El JSON se importa en tiempo de compilación; filtros, métricas y ordenación se resuelven en el navegador sobre datos locales.
+- **Postgres como fuente, JSON como red.** `/radar` lee `public.leads` desde Supabase y revalida cada 5 minutos. Si la base no responde, cae a la copia versionada del JSON y el pie de página dice cuál de las dos está mostrando.
+- **Cálculo en el cliente.** Filtros, métricas y ordenación se resuelven en el navegador sobre el conjunto ya recibido.
 - **Un solo estado, cinco vistas.** Comuna, nicho, umbral de priority score, estado web, contactabilidad y búsqueda libre afectan a la vez a KPIs, mapa, capa de densidad, ranking y tabla.
 - **Salida abierta.** La selección visible se exporta a CSV o GeoJSON, así que el análisis puede continuar fuera de la aplicación.
 
@@ -79,19 +85,34 @@ npm run dev
 | `npm run dev` | Servidor de desarrollo |
 | `npm run build` | Build de producción |
 | `npm run lint` | ESLint |
+| `npm run typecheck` | TypeScript sin emitir |
 | `npm run data:build` | Regenera el GeoJSON desde data/leads.json |
+| `npm run data:seed` | Regenera la migración de semilla de `public.leads` |
 
 **Variables de entorno**
 
 | Variable | Necesaria | Para qué |
 | --- | --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL` | Sí | Proyecto de Supabase |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Sí | Clave publishable. Pública por diseño: quien protege los datos es RLS |
 | `NEXT_PUBLIC_SITE_URL` | Opcional | Dominio propio para URL canónicas, sitemap y Open Graph. Sin ella se usa el dominio de Vercel |
+
+Sin las dos primeras el sitio sigue levantando: `/radar` usa la copia local del
+dataset y `/incidentes` muestra su estado degradado. Ninguna clave privilegiada
+—`service_role`, contraseña de base de datos, access token— se usa en la
+aplicación ni debe existir como `NEXT_PUBLIC_*`.
 
 ## 07 — ARQUITECTURA
 
 ![Arquitectura](docs/assets/architecture.svg)
 
-Sin backend, sin base de datos, sin autenticación y sin APIs privadas: el despliegue se sirve como estático desde CDN.
+Next.js sobre Vercel con Supabase detrás: PostgreSQL con RLS en todas las
+tablas, Auth, Storage y Realtime. Sin servicios de terceros más allá de esos
+tres, y sin ninguna API de pago — la cartografía es CARTO sobre OpenStreetMap.
+
+El detalle del modelo de datos, las políticas y las decisiones (por qué no
+PostGIS todavía, por qué el bucket es privado, por qué `leads.json` sigue aquí)
+está en [`docs/supabase-architecture.md`](docs/supabase-architecture.md).
 
 ### Procedencia de los datos
 
@@ -107,15 +128,18 @@ npm run data:build
 
 ## 08 — ESTADO ACTUAL
 
-- Desplegado y accesible. Las dos rutas (`/` y `/radar`) funcionan en producción.
-- El dataset son 15 negocios de 4 comunas y 4 nichos, recogidos y verificados a mano. Es una muestra de trabajo, no un censo regional.
-- La homepage del repositorio y los topics quedaron sin configurar hasta ahora.
+- Desplegado y accesible. `/`, `/radar` e `/incidentes` funcionan en producción.
+- El dataset comercial son 15 negocios de 4 comunas y 4 nichos, recogidos y verificados a mano. Es una muestra de trabajo, no un censo regional.
+- El radar ciudadano arranca **vacío a propósito**: sembrar incendios ficticios en un mapa de emergencias es engañoso aunque lleven etiqueta de demo. Las 12 categorías sí son reales.
+- Falta interfaz de subida de fotos y panel de moderación; la infraestructura de ambos está lista.
 
 ## 09 — SIGUIENTE ITERACIÓN
 
 - Ampliar la cobertura a más comunas y nichos manteniendo la regla de evidencia por registro.
 - Automatizar la recogida sin perder la trazabilidad: hoy cada `source_url` se comprueba a mano.
 - Separar la landing personal del radar si el dataset crece lo suficiente como para justificar su propio despliegue.
+- Interfaz de fotografías sobre el bucket ya configurado, y panel de moderación sobre las políticas ya escritas.
+- PostGIS cuando aparezcan consultas por radio o detección de duplicados por proximidad.
 
 ![](docs/assets/rule.svg)
 

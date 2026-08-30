@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import RadarApp from "@/components/radar/RadarApp";
+import { getLeads } from "@/lib/data/leads";
 import { SITE_URL } from "@/lib/site-config";
 
 const title = "Opportunity Radar — Región de Valparaíso";
@@ -24,6 +25,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RadarPage() {
-  return <RadarApp />;
+/**
+ * El dataset comercial cambia con poca frecuencia y es idéntico para todo el
+ * mundo, así que la página se prerenderiza y se revalida cada cinco minutos en
+ * lugar de consultar Supabase en cada visita. `getLeads()` no lanza: si la
+ * consulta falla se sirve la copia local y el pie de página lo indica.
+ */
+export const revalidate = 300;
+
+export default async function RadarPage() {
+  const { leads, source } = await getLeads();
+
+  return <RadarApp leads={leads} source={source} />;
 }

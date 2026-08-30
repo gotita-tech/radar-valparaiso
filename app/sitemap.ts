@@ -15,5 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/incidentes`,
+      lastModified: new Date(),
+      // El radar ciudadano cambia con cada reporte, no cada mes.
+      changeFrequency: "hourly",
+      priority: 0.8,
+    },
   ];
 }

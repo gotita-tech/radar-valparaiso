@@ -49,16 +49,33 @@ export const FEATURE_COLLECTION: LeadFeatureCollection = {
   })),
 };
 
-/** Sólo las opciones realmente presentes en el dataset. */
-export const FACETS = {
-  communes: [...new Set(LEADS.map((l) => l.commune))].sort((a, b) =>
-    a.localeCompare(b, "es"),
-  ),
-  niches: [...new Set(LEADS.map((l) => l.niche))] as Niche[],
-  webClasses: [...new Set(LEADS.map((l) => l.website_classification))].sort(
-    (a, b) => a - b,
-  ) as WebsiteClassification[],
+export type Facets = {
+  communes: string[];
+  niches: Niche[];
+  webClasses: WebsiteClassification[];
 };
+
+/**
+ * Sólo las opciones realmente presentes en el conjunto que se pasa.
+ *
+ * Se calcula sobre los leads recibidos y no sobre el dataset local, porque
+ * desde que el radar lee de Supabase el conjunto puede ser distinto: un filtro
+ * que ofrece una comuna sin ningún negocio detrás es un filtro roto.
+ */
+export function computeFacets(leads: Lead[]): Facets {
+  return {
+    communes: [...new Set(leads.map((l) => l.commune))].sort((a, b) =>
+      a.localeCompare(b, "es"),
+    ),
+    niches: [...new Set(leads.map((l) => l.niche))] as Niche[],
+    webClasses: [...new Set(leads.map((l) => l.website_classification))].sort(
+      (a, b) => a - b,
+    ) as WebsiteClassification[],
+  };
+}
+
+/** Facetas del dataset local. Las usa la landing, que no consulta Supabase. */
+export const FACETS: Facets = computeFacets(LEADS);
 
 function normalize(value: string) {
   return value
