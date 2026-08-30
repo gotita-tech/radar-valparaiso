@@ -228,7 +228,25 @@ duplicado, intento de repuntuar uno de los 15) y no escribe nada.
 | `npm run lint` | limpio, sin warnings |
 | `npm run build` | pasa · 36 rutas en `/prospects` y `/demos` |
 | `npm run data:check` | pasa (0 registros por encima del documento) |
-| Producción | verificada en `3c8ed43`; el commit de scoring despliega solo al hacer push |
+| Producción | verificada en `5002a98`: `/radar` renderiza los 36 prospectos y 8 comunas, sin errores de consola |
+
+### Un fallo encontrado y corregido en producción
+
+`/radar` respondía 200 pero mostraba "Application error: a client-side
+exception has occurred" y no renderizaba nada. Causa: el heat layer
+dimensionaba su lienzo con `map.getSize()`, que devuelve 0 si el contenedor
+todavía no está maquetado; `getImageData` sobre un lienzo de ancho 0 lanza
+`IndexSizeError`, y al ocurrir dentro de un manejador de Leaflet la excepción
+subía hasta React y tumbaba la página. Arreglado en `5002a98` con un guard en
+`_reset` y otro en `_draw`.
+
+Bug latente y anterior a este trabajo; se manifiesta como carrera, así que
+puede parecer intermitente.
+
+**Al verificar en el navegador:** los mensajes de consola se acumulan por
+pestaña entre navegaciones. Un error que ya está corregido sigue apareciendo si
+se reutiliza la pestaña. Abre una pestaña nueva antes de concluir que algo
+sigue roto.
 
 Las 21 barberías nuevas obtuvieron su Prospect Studio y su demo conceptual sin
 tocar código: `generateStaticParams` las recoge del dataset.
