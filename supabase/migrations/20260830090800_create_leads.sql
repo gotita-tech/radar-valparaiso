@@ -57,6 +57,11 @@ create table if not exists public.leads (
   evidence_notes text,
   demo_url text,
 
+  -- De dónde salen los números: copiados del documento canónico o calculados
+  -- por el motor de scoring desde hechos observables. Importa al comparar, y
+  -- por eso viaja hasta la interfaz en vez de quedarse en el proceso de carga.
+  scoring_source text not null default 'document',
+
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
 
@@ -81,7 +86,9 @@ create table if not exists public.leads (
   constraint leads_confidence_score_range
     check (confidence_score between 0 and 100),
   constraint leads_score_explanations_is_array
-    check (jsonb_typeof(score_explanations) = 'array')
+    check (jsonb_typeof(score_explanations) = 'array'),
+  constraint leads_scoring_source_known
+    check (scoring_source in ('document', 'engine'))
 );
 
 comment on table public.leads is

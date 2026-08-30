@@ -152,6 +152,7 @@ type LeadRow = {
   retrieved_at: string;
   evidence_notes: string | null;
   demo_url: string | null;
+  scoring_source: string;
   created_at: string;
   updated_at: string;
 };

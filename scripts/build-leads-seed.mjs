@@ -91,6 +91,7 @@ const COLUMNS = [
   "retrieved_at",
   "evidence_notes",
   "demo_url",
+  "scoring_source",
 ];
 
 function row(lead) {
@@ -137,6 +138,7 @@ function row(lead) {
     text(lead.retrieved_at),
     text(lead.evidence_notes),
     text(lead.demo_url ?? null),
+    text(lead.scoring_source ?? "document"),
   ].join(", ");
 }
 
@@ -150,8 +152,9 @@ const header = `-- Semilla de public.leads — GENERADO, no editar a mano.
 -- Origen: data/leads.json (${dataset.dataset} v${dataset.version})
 -- Regenerar: npm run data:seed
 --
--- ${dataset.leads.length} prospectos reales de ${dataset.region}. Los scores se
--- copian literalmente del documento canónico y no se recalculan aquí.
+-- ${dataset.leads.length} prospectos reales de ${dataset.region}.
+-- scoring_source distingue los copiados del documento canónico de los
+-- calculados por lib/radar/scoring.ts desde hechos observables.
 `;
 
 const body = `insert into public.leads (

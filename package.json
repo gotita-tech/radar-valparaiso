@@ -9,7 +9,10 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "data:build": "node scripts/build-geojson.mjs",
-    "data:seed": "node scripts/build-leads-seed.mjs"
+    "data:seed": "node scripts/build-leads-seed.mjs",
+    "data:geocode": "node scripts/geocode-intake.mjs",
+    "data:ingest": "node scripts/ingest-leads.ts",
+    "data:check": "node scripts/check-scoring.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",

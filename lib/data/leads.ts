@@ -101,6 +101,8 @@ function toLead(row: Tables<"leads">): Lead {
     retrieved_at: row.retrieved_at,
     evidence_notes: row.evidence_notes,
     demo_url: row.demo_url,
+    scoring_source:
+      row.scoring_source === "engine" ? "engine" : "document",
   };
 }
 

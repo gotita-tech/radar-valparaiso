@@ -284,11 +284,21 @@ export default function ProspectSheet({
                         )),
                       )}
                   </ul>
-                  <p className="mt-3 text-[10px] leading-relaxed text-paper-dim/35">
-                    Extracto de la tabla de explicabilidad del documento canónico. Las líneas de
-                    evidencia son un subconjunto documentado; el total autoritativo es el desglose
-                    por dimensión de arriba.
-                  </p>
+                  {lead.scoring_source === "engine" ? (
+                    <p className="mt-3 text-[10px] leading-relaxed text-paper-dim/35">
+                      Calculado por el motor de scoring a partir de hechos observables, siguiendo
+                      la rúbrica del documento canónico. Las señales{" "}
+                      <strong className="text-paper-dim/55">no comprobadas no suman puntos</strong>,
+                      así que este prospecto puntúa por debajo de uno con auditoría completa aunque
+                      el negocio sea equivalente. El Confidence Score lo refleja.
+                    </p>
+                  ) : (
+                    <p className="mt-3 text-[10px] leading-relaxed text-paper-dim/35">
+                      Extracto de la tabla de explicabilidad del documento canónico. Las líneas de
+                      evidencia son un subconjunto documentado; el total autoritativo es el desglose
+                      por dimensión de arriba.
+                    </p>
+                  )}
                 </section>
               ) : null}
 

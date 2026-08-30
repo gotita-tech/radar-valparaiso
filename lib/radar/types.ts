@@ -85,6 +85,18 @@ export type Lead = {
    * conceptual autogenerada.
    */
   demo_url?: string | null;
+
+  /**
+   * De dónde salen los números de este registro.
+   *
+   * `document` — copiados del documento canónico, que aplicó criterio humano.
+   * `engine`   — calculados por `lib/radar/scoring.ts` desde hechos observables.
+   *
+   * Importa al comparar: el motor no puntúa lo que no se ha comprobado, así que
+   * un registro con auditoría incompleta puntúa por debajo de uno del documento
+   * aunque el negocio sea equivalente. Ausente equivale a `document`.
+   */
+  scoring_source?: "document" | "engine";
 };
 
 export type LeadDataset = {

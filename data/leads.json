@@ -10,7 +10,7 @@
     "Tabla I — top_prospects.csv",
     "Obras citadas"
   ],
-  "notes": "Dataset piloto de 15 negocios reales de la Región de Valparaíso. Los scores provienen íntegros del documento canónico y NO se recalculan en esta versión. Los campos sin respaldo documental quedan en null.",
+  "notes": "15 registros del documento canónico (scores sin recalcular) y 16 incorporados con el motor de scoring desde hechos observables. Los campos sin verificar quedan en null y bajan el Confidence Score.",
   "generated_from_document_at": "2025-02-22T14:30:00Z",
   "leads": [
     {
@@ -50,19 +50,52 @@
       "confidence_score": 88,
       "priority_tier": "HIGH",
       "score_explanations": [
-        { "dimension": "digital_need", "points": 22, "label": "Carencia de web propia (solo perfil en AgendaPro)" },
-        { "dimension": "digital_need", "points": 10, "label": "Sin integración de reservas directa propia" },
-        { "dimension": "commercial_attractiveness", "points": 10, "label": "Alto volumen de reseñas (455 reseñas, rating 4.9)" },
-        { "dimension": "commercial_attractiveness", "points": 5, "label": "Rating sólido" },
-        { "dimension": "contactability", "points": 9, "label": "Canal de WhatsApp/Teléfono directo activo" },
-        { "dimension": "landing_fit", "points": 10, "label": "Fit perfecto para landing de barbería" },
-        { "dimension": "local_opportunity", "points": 9, "label": "Oportunidad territorial en eje Av. Argentina" }
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Carencia de web propia (solo perfil en AgendaPro)"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 10,
+          "label": "Sin integración de reservas directa propia"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 10,
+          "label": "Alto volumen de reseñas (455 reseñas, rating 4.9)"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Rating sólido"
+        },
+        {
+          "dimension": "contactability",
+          "points": 9,
+          "label": "Canal de WhatsApp/Teléfono directo activo"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Fit perfecto para landing de barbería"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 9,
+          "label": "Oportunidad territorial en eje Av. Argentina"
+        }
       ],
-      "data_flags": ["placeholder_phone"],
+      "data_flags": [
+        "placeholder_phone"
+      ],
       "source_primary": "agendapro",
-      "source_urls": ["https://agendapro.com/mp/cl/corte-cabello-valparaiso"],
+      "source_urls": [
+        "https://agendapro.com/mp/cl/corte-cabello-valparaiso"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Perfil activo en AgendaPro sin sitio web propio independiente registrado."
+      "evidence_notes": "Perfil activo en AgendaPro sin sitio web propio independiente registrado.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b002",
@@ -102,9 +135,12 @@
       "priority_tier": "GOOD",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://mariaclarita.cl"],
+      "source_urls": [
+        "https://mariaclarita.cl"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Sitio propio funcional con integración de reservas."
+      "evidence_notes": "Sitio propio funcional con integración de reservas.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b003",
@@ -144,9 +180,12 @@
       "priority_tier": "MEDIUM",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://aquijaime.cl/"],
+      "source_urls": [
+        "https://aquijaime.cl/"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
     },
     {
       "business_id": "b004",
@@ -185,18 +224,49 @@
       "confidence_score": 82,
       "priority_tier": "HIGH",
       "score_explanations": [
-        { "dimension": "digital_need", "points": 22, "label": "Operatividad exclusiva mediante Fresha" },
-        { "dimension": "digital_need", "points": 9, "label": "Carencia de dominio corporativo propio" },
-        { "dimension": "commercial_attractiveness", "points": 9, "label": "Alta demanda comercial en sector 4 Norte" },
-        { "dimension": "commercial_attractiveness", "points": 5, "label": "Rating sobresaliente" },
-        { "dimension": "contactability", "points": 8, "label": "Contacto comercial verificado" },
-        { "dimension": "landing_fit", "points": 10, "label": "Fit de conversión para agendamiento directo" },
-        { "dimension": "local_opportunity", "points": 9, "label": "Relevancia en polo Viña Centro" }
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Operatividad exclusiva mediante Fresha"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 9,
+          "label": "Carencia de dominio corporativo propio"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 9,
+          "label": "Alta demanda comercial en sector 4 Norte"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Rating sobresaliente"
+        },
+        {
+          "dimension": "contactability",
+          "points": 8,
+          "label": "Contacto comercial verificado"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Fit de conversión para agendamiento directo"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 9,
+          "label": "Relevancia en polo Viña Centro"
+        }
       ],
       "source_primary": "fresha",
-      "source_urls": ["https://www.fresha.com/es/a/machos-barbershop-vina-del-mar-vina-del-mar-4-norte-477-w61hgpyh"],
+      "source_urls": [
+        "https://www.fresha.com/es/a/machos-barbershop-vina-del-mar-vina-del-mar-4-norte-477-w61hgpyh"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Perfil activo en Fresha sin dominio web corporativo enlazado."
+      "evidence_notes": "Perfil activo en Fresha sin dominio web corporativo enlazado.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b005",
@@ -235,18 +305,49 @@
       "confidence_score": 79,
       "priority_tier": "HIGH",
       "score_explanations": [
-        { "dimension": "digital_need", "points": 25, "label": "No se encontró sitio web tras búsqueda" },
-        { "dimension": "digital_need", "points": 10, "label": "Ausencia de motor de agendamiento independiente" },
-        { "dimension": "commercial_attractiveness", "points": 8, "label": "Flujo constante de clientes en local de Calle Condell" },
-        { "dimension": "commercial_attractiveness", "points": 5, "label": "Rating altamente favorable" },
-        { "dimension": "contactability", "points": 7, "label": "WhatsApp verificado" },
-        { "dimension": "landing_fit", "points": 10, "label": "Fit para landing page" },
-        { "dimension": "local_opportunity", "points": 8, "label": "Elevada brecha digital en cuadrante almendral" }
+        {
+          "dimension": "digital_need",
+          "points": 25,
+          "label": "No se encontró sitio web tras búsqueda"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 10,
+          "label": "Ausencia de motor de agendamiento independiente"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 8,
+          "label": "Flujo constante de clientes en local de Calle Condell"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Rating altamente favorable"
+        },
+        {
+          "dimension": "contactability",
+          "points": 7,
+          "label": "WhatsApp verificado"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Fit para landing page"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 8,
+          "label": "Elevada brecha digital en cuadrante almendral"
+        }
       ],
       "source_primary": "agendapro",
-      "source_urls": ["https://agendapro.com/mp/cl/corte-cabello-valparaiso"],
+      "source_urls": [
+        "https://agendapro.com/mp/cl/corte-cabello-valparaiso"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado."
+      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b006",
@@ -286,9 +387,12 @@
       "priority_tier": "MEDIUM",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://www.the-wolf.cl/"],
+      "source_urls": [
+        "https://www.the-wolf.cl/"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
     },
     {
       "business_id": "b007",
@@ -328,9 +432,12 @@
       "priority_tier": "GOOD",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://humanosalonbarber.cl/"],
+      "source_urls": [
+        "https://humanosalonbarber.cl/"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
     },
     {
       "business_id": "b008",
@@ -370,9 +477,12 @@
       "priority_tier": "GOOD",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://www.barlavirgen.cl/"],
+      "source_urls": [
+        "https://www.barlavirgen.cl/"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
     },
     {
       "business_id": "b009",
@@ -412,9 +522,12 @@
       "priority_tier": "MEDIUM",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://grupoisla.cl/pages/la-isla-cochoa"],
+      "source_urls": [
+        "https://grupoisla.cl/pages/la-isla-cochoa"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
     },
     {
       "business_id": "b010",
@@ -453,18 +566,49 @@
       "confidence_score": 74,
       "priority_tier": "HIGH",
       "score_explanations": [
-        { "dimension": "digital_need", "points": 25, "label": "Sin sitio web propio detectado" },
-        { "dimension": "digital_need", "points": 10, "label": "Carencia de sistema de turnos propio" },
-        { "dimension": "commercial_attractiveness", "points": 7, "label": "Tracción media en zona centro" },
-        { "dimension": "commercial_attractiveness", "points": 5, "label": "Rating positivo" },
-        { "dimension": "contactability", "points": 6, "label": "Canal de contacto activo" },
-        { "dimension": "landing_fit", "points": 10, "label": "Fit de conversión B2B" },
-        { "dimension": "local_opportunity", "points": 8, "label": "Alta brecha competitiva local" }
+        {
+          "dimension": "digital_need",
+          "points": 25,
+          "label": "Sin sitio web propio detectado"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 10,
+          "label": "Carencia de sistema de turnos propio"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 7,
+          "label": "Tracción media en zona centro"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Rating positivo"
+        },
+        {
+          "dimension": "contactability",
+          "points": 6,
+          "label": "Canal de contacto activo"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Fit de conversión B2B"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 8,
+          "label": "Alta brecha competitiva local"
+        }
       ],
       "source_primary": "agendapro",
-      "source_urls": ["https://agendapro.com/mp/cl/corte-cabello-valparaiso"],
+      "source_urls": [
+        "https://agendapro.com/mp/cl/corte-cabello-valparaiso"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado."
+      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b011",
@@ -503,18 +647,49 @@
       "confidence_score": 76,
       "priority_tier": "HIGH",
       "score_explanations": [
-        { "dimension": "digital_need", "points": 25, "label": "Sin presencia web estructurada" },
-        { "dimension": "digital_need", "points": 9, "label": "Carencia de catálogo visual de servicios" },
-        { "dimension": "commercial_attractiveness", "points": 8, "label": "Actividad comercial continua en Eloy Alfaro" },
-        { "dimension": "commercial_attractiveness", "points": 5, "label": "Excelente reputación local" },
-        { "dimension": "contactability", "points": 7, "label": "Teléfono/WhatsApp disponible" },
-        { "dimension": "landing_fit", "points": 10, "label": "Fit extremo para landing page" },
-        { "dimension": "local_opportunity", "points": 8, "label": "Oportunidad en sector comercial Valparaíso" }
+        {
+          "dimension": "digital_need",
+          "points": 25,
+          "label": "Sin presencia web estructurada"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 9,
+          "label": "Carencia de catálogo visual de servicios"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 8,
+          "label": "Actividad comercial continua en Eloy Alfaro"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Excelente reputación local"
+        },
+        {
+          "dimension": "contactability",
+          "points": 7,
+          "label": "Teléfono/WhatsApp disponible"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Fit extremo para landing page"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 8,
+          "label": "Oportunidad en sector comercial Valparaíso"
+        }
       ],
       "source_primary": "agendapro",
-      "source_urls": ["https://agendapro.com/mp/cl/corte-cabello-valparaiso"],
+      "source_urls": [
+        "https://agendapro.com/mp/cl/corte-cabello-valparaiso"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado."
+      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b012",
@@ -553,18 +728,49 @@
       "confidence_score": 80,
       "priority_tier": "HIGH",
       "score_explanations": [
-        { "dimension": "digital_need", "points": 22, "label": "Operatividad concentrada en aplicaciones de delivery" },
-        { "dimension": "digital_need", "points": 8, "label": "Fuga relevante de margen por comisiones de terceros" },
-        { "dimension": "commercial_attractiveness", "points": 9, "label": "Volumen de pedidos continuo en Villa Alemana" },
-        { "dimension": "commercial_attractiveness", "points": 5, "label": "Buena calificación" },
-        { "dimension": "contactability", "points": 8, "label": "WhatsApp Business activo" },
-        { "dimension": "landing_fit", "points": 9, "label": "Fit alto para menú digital transaccional" },
-        { "dimension": "local_opportunity", "points": 9, "label": "Cero competencia web en su cuadrante" }
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Operatividad concentrada en aplicaciones de delivery"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 8,
+          "label": "Fuga relevante de margen por comisiones de terceros"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 9,
+          "label": "Volumen de pedidos continuo en Villa Alemana"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 5,
+          "label": "Buena calificación"
+        },
+        {
+          "dimension": "contactability",
+          "points": 8,
+          "label": "WhatsApp Business activo"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 9,
+          "label": "Fit alto para menú digital transaccional"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 9,
+          "label": "Cero competencia web en su cuadrante"
+        }
       ],
       "source_primary": "delivery_app",
-      "source_urls": ["https://www.rappi.cl/restaurantes/delivery/69931-tutti-foods-villa-alemana"],
+      "source_urls": [
+        "https://www.rappi.cl/restaurantes/delivery/69931-tutti-foods-villa-alemana"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Alta presencia en aplicaciones de despacho sin sitio web ni carta digital interactiva propia."
+      "evidence_notes": "Alta presencia en aplicaciones de despacho sin sitio web ni carta digital interactiva propia.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b013",
@@ -604,9 +810,12 @@
       "priority_tier": "GOOD",
       "score_explanations": [],
       "source_primary": "agendapro",
-      "source_urls": ["https://agendapro.com/mp/cl/corte-cabello-valparaiso"],
+      "source_urls": [
+        "https://agendapro.com/mp/cl/corte-cabello-valparaiso"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado."
+      "evidence_notes": "Perfil activo en AgendaPro sin dominio web corporativo enlazado.",
+      "scoring_source": "document"
     },
     {
       "business_id": "b014",
@@ -646,9 +855,12 @@
       "priority_tier": "GOOD",
       "score_explanations": [],
       "source_primary": "direct",
-      "source_urls": ["https://www.sanmarinochile.com/"],
+      "source_urls": [
+        "https://www.sanmarinochile.com/"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
     },
     {
       "business_id": "b015",
@@ -688,9 +900,1334 @@
       "priority_tier": "GOOD",
       "score_explanations": [],
       "source_primary": "social_news",
-      "source_urls": ["https://www.guioteca.com/moda/nicole-luli-moreno-invita-a-conocer-su-nueva-tienda-de-ropa-exclusiva-con-seductoras-imagenes/"],
+      "source_urls": [
+        "https://www.guioteca.com/moda/nicole-luli-moreno-invita-a-conocer-su-nueva-tienda-de-ropa-exclusiva-con-seductoras-imagenes/"
+      ],
       "retrieved_at": "2025-02-22T14:30:00Z",
-      "evidence_notes": null
+      "evidence_notes": null,
+      "scoring_source": "document"
+    },
+    {
+      "business_id": "b016",
+      "business_name": "Kliverbarber",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Valparaíso",
+      "address": "Morris 419",
+      "latitude": -33.04925,
+      "longitude": -71.60909,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/kliverbarber-valparaiso/40294",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b017",
+      "business_name": "MAPU Barber Shop Spa",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Valparaíso",
+      "address": "Blanco 974, local 01",
+      "latitude": -33.04088,
+      "longitude": -71.62553,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/mapu-barber-shop-spa-valparaiso/40246",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 43,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b018",
+      "business_name": "Compañia 47",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Valparaíso",
+      "address": "Condell 1190, Departamento 47",
+      "latitude": -33.04385,
+      "longitude": -71.62444,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/compania-47-valparaiso/40256",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 43,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b019",
+      "business_name": "Barberos Chile",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Valparaíso",
+      "address": "Esmeralda 1048",
+      "latitude": -33.06375,
+      "longitude": -71.59588,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/barberos-chile-valparaiso/40259",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b020",
+      "business_name": "Barber Club Mr. Aranda",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Valparaíso",
+      "address": "Pedro Montt 2087",
+      "latitude": -33.02884,
+      "longitude": -71.57129,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/barber-club-mr-aranda-valparaiso/40291",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b021",
+      "business_name": "Asbarbershopp",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Viña del Mar",
+      "address": "Av. Valparaíso 818, local 87",
+      "latitude": -33.02638,
+      "longitude": -71.54315,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/asbarbershopp-region-de-valparaiso/212209",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 7,
+      "priority_score": 48,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 5,
+          "label": "Eje comercial estratégico: Calle Valparaíso"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b022",
+      "business_name": "ANFA Barber Shop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "La Calera",
+      "address": "Diego Lillo 215",
+      "latitude": -32.7888,
+      "longitude": -71.19191,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/anfa-barber-shop-region-de-valparaiso/212322",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "0 reseñas (umbral absoluto: cohorte insuficiente para percentil)"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b023",
+      "business_name": "Bárbaros Quilpué Barbershop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Quilpué",
+      "address": "Lincoyán 1140",
+      "latitude": -33.0325,
+      "longitude": -71.4027,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/pl/barbaros-quilpue-barbershop-quilpue/38245",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Ficha activa en AgendaPro con dirección y horarios publicados; sin sitio web propio detectado. Reputación no verificada: AgendaPro no expone rating ni volumen de reseñas.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "0 reseñas (umbral absoluto: cohorte insuficiente para percentil)"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b024",
+      "business_name": "Barbería Don Luis de Roma",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Concón",
+      "address": "El Prado",
+      "latitude": -32.93527,
+      "longitude": -71.53699,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-concon",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b025",
+      "business_name": "Sin Fronteras Barbershop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Concón",
+      "address": "Av. Concón Reñaca",
+      "latitude": -32.93372,
+      "longitude": -71.52671,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-concon",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 43,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b026",
+      "business_name": "Muski Barber Shop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Concón",
+      "address": "Paseo del Alto 41",
+      "latitude": null,
+      "longitude": null,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-concon"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 45,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b027",
+      "business_name": "Clandestins",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Concón",
+      "address": "Av. Concón Reñaca 41, Local 25",
+      "latitude": -32.93372,
+      "longitude": -71.52671,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-concon",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 43,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b028",
+      "business_name": "Barberprogamestop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Villa Alemana",
+      "address": "Reinicke 11",
+      "latitude": -33.04375,
+      "longitude": -71.37884,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-villa-alemana",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b029",
+      "business_name": "Lions Barber Shop",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Villa Alemana",
+      "address": "Av. Valparaíso 638, local 3 A",
+      "latitude": -33.04611,
+      "longitude": -71.39351,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-villa-alemana",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b030",
+      "business_name": "Kingsman Barber Club",
+      "niche": "barbershop",
+      "subcategory": "Barbería",
+      "commune": "Villa Alemana",
+      "address": "Alcalde Alejandro Peralta 279",
+      "latitude": -33.0611,
+      "longitude": -71.39499,
+      "website_url": null,
+      "has_website": false,
+      "website_classification": 3,
+      "website_quality": null,
+      "instagram_url": null,
+      "facebook_url": null,
+      "social_only_presence": true,
+      "online_booking": false,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": null,
+      "public_business_email": null,
+      "public_business_phone": null,
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "agendapro",
+      "source_urls": [
+        "https://agendapro.com/mp/cl/barberias-villa-alemana",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Listado por comuna de AgendaPro con dirección publicada; sin sitio web propio detectado. Reputación y canales de contacto no verificados.",
+      "demo_url": null,
+      "digital_need_score": 29,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 0,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 4,
+      "priority_score": 45,
+      "confidence_score": 47,
+      "priority_tier": "MEDIUM",
+      "score_explanations": [
+        {
+          "dimension": "digital_need",
+          "points": 22,
+          "label": "Opera sólo en redes sociales o agregadores"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 4,
+          "label": "Sin sistema de reservas propio"
+        },
+        {
+          "dimension": "digital_need",
+          "points": 3,
+          "label": "Sin canal visible de WhatsApp Business"
+        },
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Sin competidores directos a 500 m: presión competitiva no establecida"
+        }
+      ],
+      "scoring_source": "engine"
+    },
+    {
+      "business_id": "b031",
+      "business_name": "Cambia tu Look",
+      "niche": "barbershop",
+      "subcategory": "Barbería y peluquería",
+      "commune": "Viña del Mar",
+      "address": "10 Norte 1050",
+      "latitude": -33.01299,
+      "longitude": -71.55149,
+      "website_url": "https://cambiatulook.cl",
+      "has_website": true,
+      "website_classification": 0,
+      "website_quality": "Dominio propio con HTTPS, menú de servicios con precios y formulario de reserva.",
+      "instagram_url": "https://www.instagram.com/cambiatulook.cl/",
+      "facebook_url": null,
+      "social_only_presence": false,
+      "online_booking": true,
+      "online_ordering": false,
+      "online_menu": false,
+      "online_catalog": true,
+      "whatsapp_business": "+56942929457",
+      "public_business_email": "contacto@cambiatulook.cl",
+      "public_business_phone": "+56942929457",
+      "rating": null,
+      "review_count": null,
+      "social_activity": null,
+      "multiple_locations": null,
+      "business_age_signal": null,
+      "source_primary": "direct",
+      "source_urls": [
+        "https://cambiatulook.cl/barberia/",
+        "https://nominatim.openstreetmap.org/"
+      ],
+      "retrieved_at": "2026-08-30T00:00:00Z",
+      "evidence_notes": "Sitio propio verificado con precios publicados, correo corporativo y WhatsApp. Responsividad no comprobada, por lo que la auditoría técnica queda sin marcar.",
+      "demo_url": null,
+      "digital_need_score": 0,
+      "commercial_attractiveness_score": 2,
+      "contactability_score": 15,
+      "landing_fit_score": 10,
+      "local_opportunity_score": 2,
+      "priority_score": 29,
+      "confidence_score": 55,
+      "priority_tier": "LOW",
+      "score_explanations": [
+        {
+          "dimension": "commercial_attractiveness",
+          "points": 2,
+          "label": "Volumen de reseñas en el percentil 0 de su nicho y comuna"
+        },
+        {
+          "dimension": "contactability",
+          "points": 6,
+          "label": "Correo empresarial público verificado"
+        },
+        {
+          "dimension": "contactability",
+          "points": 5,
+          "label": "WhatsApp Business o móvil corporativo"
+        },
+        {
+          "dimension": "contactability",
+          "points": 4,
+          "label": "Perfil de Instagram como canal activo"
+        },
+        {
+          "dimension": "landing_fit",
+          "points": 10,
+          "label": "Barbería: necesidad crítica de servicios, precios y agendamiento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 2,
+          "label": "Fuera de los ejes comerciales citados en el documento"
+        },
+        {
+          "dimension": "local_opportunity",
+          "points": 0,
+          "label": "0 de 1 competidores a 500 m ya tienen web"
+        }
+      ],
+      "scoring_source": "engine"
     }
   ]
 }

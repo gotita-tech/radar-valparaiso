@@ -21,9 +21,17 @@ dataset.
 
 ## Reglas aplicadas
 
-1. **Los scores no se recalculan.** `priority_score`, `confidence_score` y los
-   cinco sub-scores se copian literalmente del suministro. El motor de scoring
-   descrito en el documento queda documentado pero no se ejecuta en esta versión.
+1. **Los 15 originales no se recalculan.** Para ellos, `priority_score`,
+   `confidence_score` y los cinco sub-scores se copian literalmente del
+   suministro. `scoring_source: "document"` los identifica y el pipeline de
+   incorporación se niega a tocarlos.
+
+   Los registros añadidos después llevan `scoring_source: "engine"` y sus
+   scores los calcula `lib/radar/scoring.ts`, que implementa la rúbrica del
+   propio documento. **No son comparables sin más:** el motor no puntúa lo que
+   no se ha comprobado, así que un registro con auditoría incompleta queda por
+   debajo de uno del documento aunque el negocio sea equivalente. La ficha del
+   prospecto lo advierte.
 2. **No se inventa información.** Cualquier campo del esquema canónico sin
    respaldo documental queda en `null`.
 3. **Campos derivados por definición**, no por inferencia: `has_website` y
@@ -66,14 +74,54 @@ de compilación y construye la `FeatureCollection` en memoria
 (`lib/radar/data.ts`). Los `.geojson` existen como artefacto exportable y para
 descarga directa desde `/data/leads.geojson`.
 
+## Ampliar el dataset
+
+```bash
+# 1. Escribe hechos observables en data/intake/*.json (NO scores)
+# 2. Rellena coordenadas desde OpenStreetMap
+npm run data:geocode
+# 3. Valida, puntúa con el motor y fusiona en leads.json
+npm run data:ingest
+# 4. Regenera GeoJSON y la migración de semilla
+npm run data:build && npm run data:seed
+```
+
+`npm run data:check` contrasta el motor contra los 15 del documento. El motor
+debe quedar **por debajo**, nunca por encima: si sobrepasa, la rúbrica está mal
+implementada y el script falla.
+
+### Qué se escribe en un intake
+
+Hechos, no puntuaciones. Cada registro necesita como mínimo `business_id`,
+`business_name`, `niche`, `commune`, `website_classification`, `source_primary`,
+`source_urls` y `retrieved_at`, más un bloque `audit` con las señales que el
+esquema canónico no guarda (responsividad, HTTPS, actividad social, antigüedad,
+fuentes independientes).
+
+En `audit`, `null` significa "no comprobado" y **nunca suma puntos**. Es
+deliberado: es preferible un registro honesto con confianza 47 que uno inventado
+con confianza 90.
+
+El validador rechaza el lote entero si algo no cuadra —clase web incoherente con
+`website_url`, `source_urls` vacío, coordenadas fuera de la región, id duplicado,
+o un intento de repuntuar uno de los 15 del documento— y no escribe nada.
+
 ## Cobertura
 
-15 negocios · 4 comunas (Valparaíso, Viña del Mar, Concón, Villa Alemana) ·
-4 nichos (barbería, restaurante, bar, boutique).
+31 negocios · 6 comunas (Valparaíso, Viña del Mar, Concón, Villa Alemana,
+Quilpué, La Calera) · 4 nichos.
 
-Quilpué aparece en el documento como comuna de expansión, pero el dataset piloto
-no contiene ningún negocio allí: la interfaz sólo muestra las comunas realmente
-presentes en los datos.
+Por nicho: 24 barberías, 5 restaurantes, 1 bar, 1 boutique.
+
+La ampliación de agosto de 2026 añadió 16 barberías reales verificadas en
+AgendaPro y en el sitio propio del negocio. De ellas, 15 tienen coordenadas
+resueltas contra OpenStreetMap; Muski Barber Shop se queda sin ubicación porque
+Nominatim no resuelve su dirección, y no se inventa una.
+
+De esas 16, quince operan **sin sitio web propio** (clase 3, sólo agregador o
+redes). La excepción es Cambia tu Look, que sí tiene web con reservas y precios
+y por eso puntúa LOW: no necesita lo que vendemos. Sirve de contraste y alimenta
+el cálculo de brecha competitiva de sus vecinos.
 
 Ningún negocio del piloto alcanza el rango VERY HIGH (≥ 85). El máximo es
 `b001` con 83. El KPI se mantiene por completitud del modelo.

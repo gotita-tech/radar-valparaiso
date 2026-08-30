@@ -10,7 +10,7 @@
   "metadata": {
     "source_document": "docs/Radar-de-Oportunidades-Valparaiso.docx",
     "generated_from_document_at": "2025-02-22T14:30:00Z",
-    "feature_count": 15
+    "feature_count": 30
   },
   "features": [
     {
@@ -326,6 +326,321 @@
         "confidence_score": 70,
         "priority_tier": "GOOD",
         "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.60909,
+          -33.04925
+        ]
+      },
+      "properties": {
+        "business_id": "b016",
+        "business_name": "Kliverbarber",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Morris 419",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.62553,
+          -33.04088
+        ]
+      },
+      "properties": {
+        "business_id": "b017",
+        "business_name": "MAPU Barber Shop Spa",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Blanco 974, local 01",
+        "priority_score": 43,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.62444,
+          -33.04385
+        ]
+      },
+      "properties": {
+        "business_id": "b018",
+        "business_name": "Compañia 47",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Condell 1190, Departamento 47",
+        "priority_score": 43,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.59588,
+          -33.06375
+        ]
+      },
+      "properties": {
+        "business_id": "b019",
+        "business_name": "Barberos Chile",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Esmeralda 1048",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.57129,
+          -33.02884
+        ]
+      },
+      "properties": {
+        "business_id": "b020",
+        "business_name": "Barber Club Mr. Aranda",
+        "niche": "barbershop",
+        "commune": "Valparaíso",
+        "address": "Pedro Montt 2087",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.54315,
+          -33.02638
+        ]
+      },
+      "properties": {
+        "business_id": "b021",
+        "business_name": "Asbarbershopp",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "Av. Valparaíso 818, local 87",
+        "priority_score": 48,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.19191,
+          -32.7888
+        ]
+      },
+      "properties": {
+        "business_id": "b022",
+        "business_name": "ANFA Barber Shop",
+        "niche": "barbershop",
+        "commune": "La Calera",
+        "address": "Diego Lillo 215",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4027,
+          -33.0325
+        ]
+      },
+      "properties": {
+        "business_id": "b023",
+        "business_name": "Bárbaros Quilpué Barbershop",
+        "niche": "barbershop",
+        "commune": "Quilpué",
+        "address": "Lincoyán 1140",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.53699,
+          -32.93527
+        ]
+      },
+      "properties": {
+        "business_id": "b024",
+        "business_name": "Barbería Don Luis de Roma",
+        "niche": "barbershop",
+        "commune": "Concón",
+        "address": "El Prado",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.52671,
+          -32.93372
+        ]
+      },
+      "properties": {
+        "business_id": "b025",
+        "business_name": "Sin Fronteras Barbershop",
+        "niche": "barbershop",
+        "commune": "Concón",
+        "address": "Av. Concón Reñaca",
+        "priority_score": 43,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.52671,
+          -32.93372
+        ]
+      },
+      "properties": {
+        "business_id": "b027",
+        "business_name": "Clandestins",
+        "niche": "barbershop",
+        "commune": "Concón",
+        "address": "Av. Concón Reñaca 41, Local 25",
+        "priority_score": 43,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.37884,
+          -33.04375
+        ]
+      },
+      "properties": {
+        "business_id": "b028",
+        "business_name": "Barberprogamestop",
+        "niche": "barbershop",
+        "commune": "Villa Alemana",
+        "address": "Reinicke 11",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.39351,
+          -33.04611
+        ]
+      },
+      "properties": {
+        "business_id": "b029",
+        "business_name": "Lions Barber Shop",
+        "niche": "barbershop",
+        "commune": "Villa Alemana",
+        "address": "Av. Valparaíso 638, local 3 A",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.39499,
+          -33.0611
+        ]
+      },
+      "properties": {
+        "business_id": "b030",
+        "business_name": "Kingsman Barber Club",
+        "niche": "barbershop",
+        "commune": "Villa Alemana",
+        "address": "Alcalde Alejandro Peralta 279",
+        "priority_score": 45,
+        "confidence_score": 47,
+        "priority_tier": "MEDIUM",
+        "website_classification": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.55149,
+          -33.01299
+        ]
+      },
+      "properties": {
+        "business_id": "b031",
+        "business_name": "Cambia tu Look",
+        "niche": "barbershop",
+        "commune": "Viña del Mar",
+        "address": "10 Norte 1050",
+        "priority_score": 29,
+        "confidence_score": 55,
+        "priority_tier": "LOW",
+        "website_classification": 0
       }
     }
   ]
